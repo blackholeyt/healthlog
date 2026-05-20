@@ -527,16 +527,12 @@
 
     <!-- Workout -->
     <div class="section-label">Workout</div>
-    <div class="card card-full" style="--c:var(--green)">
+    <div class="card card-full" style="--c:var(--green)" onclick="focusInput('workout')">
+      <span class="card-icon">🏋️</span>
       <div class="card-label">Workout Typ</div>
-      <div class="workout-chips">
-        <button class="wchip" data-w="Kraft"  onclick="pickWorkout(this)">🏋️ Kraft</button>
-        <button class="wchip" data-w="Cardio" onclick="pickWorkout(this)">🏃 Cardio</button>
-        <button class="wchip" data-w="Yoga"   onclick="pickWorkout(this)">🧘 Yoga</button>
-        <button class="wchip" data-w="HIIT"   onclick="pickWorkout(this)">⚡ HIIT</button>
-        <button class="wchip" data-w="Sport"  onclick="pickWorkout(this)">⚽ Sport</button>
-        <button class="wchip" data-w="Rest"   onclick="pickWorkout(this)">😴 Rest</button>
-      </div>
+      <input class="metric-input" id="inp-workout" type="text"
+             placeholder="—" style="--c:var(--green); font-size:20px"
+             oninput="currentWorkout=this.value">
     </div>
 
     <!-- Schlaf -->
@@ -739,7 +735,7 @@ function clearForm() {
   ['kcal','protein','carbs','fat','weight'].forEach(k => {
     document.getElementById('inp-' + k).value = '';
   });
-  document.querySelectorAll('.wchip').forEach(c => c.classList.remove('sel'));
+  document.getElementById('inp-workout').value = '';
   currentWorkout = '';
   sleepTouched = false;
   const sl = document.getElementById('inp-sleep');
@@ -756,9 +752,7 @@ function fillForm(d) {
   set('carbs', d.carbs); set('fat', d.fat); set('weight', d.weight);
   if (d.workout) {
     currentWorkout = d.workout;
-    document.querySelectorAll('.wchip').forEach(c => {
-      if (c.dataset.w === d.workout) c.classList.add('sel');
-    });
+    document.getElementById('inp-workout').value = d.workout;
   }
   if (d.sleep && d.sleep !== '') {
     sleepTouched = true;
