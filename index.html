@@ -415,6 +415,25 @@
       margin-bottom: 14px;
     }
 
+    /* ── URL RESET BUTTON ── */
+    .reset-url-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-dim);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 12px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+      display: none;
+    }
+    .reset-url-btn.visible { display: block; }
+    .reset-url-btn:active { background: var(--surface2); color: var(--text); }
+
     /* ── SPINNER ── */
     .spin {
       display: inline-block;
@@ -539,6 +558,11 @@
       Speichern
     </button>
     <div class="status-bar" id="save-status" style="margin-bottom:4px"></div>
+
+    <!-- URL Reset -->
+    <button class="reset-url-btn" id="reset-url-btn" onclick="resetUrl()">
+      ⚙️ Script-URL ändern
+    </button>
     <div style="height:8px"></div>
   </div>
 
@@ -607,6 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCharts();
   if (SCRIPT_URL) {
     document.getElementById('setup-banner').style.display = 'none';
+    document.getElementById('reset-url-btn').classList.add('visible');
     loadDay();
   } else {
     document.getElementById('save-btn').disabled = true;
@@ -625,10 +650,21 @@ function saveUrl() {
   SCRIPT_URL = v;
   localStorage.setItem(URL_KEY, v);
   document.getElementById('setup-banner').style.display = 'none';
+  document.getElementById('reset-url-btn').classList.add('visible');
   document.getElementById('save-btn').disabled = false;
   loadDay();
 }
 
+function resetUrl() {
+  SCRIPT_URL = '';
+  localStorage.removeItem(URL_KEY);
+  document.getElementById('url-input').value = '';
+  document.getElementById('setup-banner').style.display = 'block';
+  document.getElementById('reset-url-btn').classList.remove('visible');
+  document.getElementById('save-btn').disabled = true;
+  showStatus('tracker-status', '', '');
+  showStatus('save-status', '', '');
+}
 // ══════════════════════════════════════════════
 //  DATE NAV
 // ══════════════════════════════════════════════
