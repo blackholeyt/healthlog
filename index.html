@@ -434,6 +434,200 @@
     .reset-url-btn.visible { display: block; }
     .reset-url-btn:active { background: var(--surface2); color: var(--text); }
 
+    /* ── CALENDAR PAGE ── */
+    .cal-header {
+      padding-top: calc(env(safe-area-inset-top, 0px) + 20px);
+      padding-bottom: 4px;
+    }
+    .cal-month-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .cal-month-label {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .cal-month-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 1px;
+    }
+    .cal-arrow {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+    .cal-arrow:active { background: var(--surface2); }
+    .cal-arrow:disabled { opacity: 0.25; cursor: default; }
+
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 6px;
+    }
+    .cal-wd {
+      text-align: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 0;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .cal-cell {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.12s, transform 0.1s;
+      border: 1px solid transparent;
+      gap: 3px;
+    }
+    .cal-cell:active { transform: scale(0.92); }
+    .cal-cell.empty { cursor: default; pointer-events: none; }
+    .cal-cell.future { opacity: 0.28; cursor: default; pointer-events: none; }
+    .cal-cell.other-month .cal-day-num { opacity: 0.3; }
+    .cal-cell:not(.empty):not(.future):hover { background: var(--surface2); }
+
+    .cal-cell.selected {
+      background: var(--accent) !important;
+      border-color: var(--accent);
+    }
+    .cal-cell.selected .cal-day-num { color: #000 !important; font-weight: 800; }
+    .cal-cell.selected .cal-dot { background: rgba(0,0,0,0.35) !important; }
+
+    .cal-cell.is-today:not(.selected) {
+      border-color: var(--accent);
+    }
+    .cal-cell.is-today:not(.selected) .cal-day-num { color: var(--accent); }
+
+    .cal-day-num {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+    }
+    .cal-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+    .cal-dot-row {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+      min-height: 5px;
+    }
+
+    /* ── CALENDAR SUMMARY CARD ── */
+    .cal-summary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .cal-summary-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cal-go-btn {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.15s;
+    }
+    .cal-go-btn:active { opacity: 0.8; }
+    .cal-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .cal-metric {
+      background: var(--surface2);
+      border-radius: 12px;
+      padding: 10px 10px 8px;
+      text-align: center;
+    }
+    .cal-metric-val {
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.1;
+    }
+    .cal-metric-val.empty { color: var(--text-dim); opacity: 0.4; font-size: 14px; }
+    .cal-metric-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+    .cal-workout-badge {
+      background: var(--green-dim);
+      color: var(--green);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .cal-legend {
+      display: flex;
+      gap: 16px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-dim);
+      font-weight: 500;
+    }
+    .cal-legend-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+
     /* ── SPINNER ── */
     .spin {
       display: inline-block;
@@ -596,10 +790,93 @@
     <div style="height:8px"></div>
   </div>
 
+  <!-- ════════════════════ KALENDER PAGE ════════════════════ -->
+  <div class="page" id="page-kalender">
+    <div class="cal-header">
+      <div class="cal-month-nav">
+        <button class="cal-arrow" id="cal-prev" onclick="calChangeMonth(-1)">‹</button>
+        <div style="text-align:center">
+          <div class="cal-month-label" id="cal-month-label">Mai 2026</div>
+          <div class="cal-month-sub" id="cal-month-sub"></div>
+        </div>
+        <button class="cal-arrow" id="cal-next" onclick="calChangeMonth(1)">›</button>
+      </div>
+    </div>
+
+    <div class="status-bar" id="cal-status"></div>
+
+    <!-- Wochentage Header -->
+    <div class="cal-weekdays">
+      <div class="cal-wd">Mo</div>
+      <div class="cal-wd">Di</div>
+      <div class="cal-wd">Mi</div>
+      <div class="cal-wd">Do</div>
+      <div class="cal-wd">Fr</div>
+      <div class="cal-wd">Sa</div>
+      <div class="cal-wd">So</div>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="cal-grid" id="cal-grid"></div>
+
+    <!-- Legend -->
+    <div class="cal-legend">
+      <div class="cal-legend-item">
+        <div class="cal-legend-dot" style="background:var(--green)"></div>Einträge vorhanden
+      </div>
+      <div class="cal-legend-item">
+        <div class="cal-legend-dot" style="background:transparent;border:1.5px solid var(--accent);box-sizing:border-box"></div>Heute
+      </div>
+      <div class="cal-legend-item">
+        <div class="cal-legend-dot" style="background:var(--accent)"></div>Ausgewählt
+      </div>
+    </div>
+
+    <!-- Day Summary -->
+    <div class="cal-summary" id="cal-summary">
+      <div class="cal-summary-date">
+        <span id="cal-summary-label">Wähle einen Tag</span>
+        <button class="cal-go-btn" onclick="goToSelectedDay()">Im Tracker öffnen →</button>
+      </div>
+      <div class="cal-summary-grid" id="cal-summary-grid">
+        <div class="cal-metric">
+          <div class="cal-metric-val empty" id="csm-kcal">—</div>
+          <div class="cal-metric-label">🔥 kcal</div>
+        </div>
+        <div class="cal-metric">
+          <div class="cal-metric-val empty" id="csm-weight">—</div>
+          <div class="cal-metric-label">⚖️ kg</div>
+        </div>
+        <div class="cal-metric">
+          <div class="cal-metric-val empty" id="csm-sleep">—</div>
+          <div class="cal-metric-label">😴 Schlaf</div>
+        </div>
+        <div class="cal-metric">
+          <div class="cal-metric-val empty" id="csm-protein">—</div>
+          <div class="cal-metric-label">💪 Protein</div>
+        </div>
+        <div class="cal-metric">
+          <div class="cal-metric-val empty" id="csm-carbs">—</div>
+          <div class="cal-metric-label">🌾 Carbs</div>
+        </div>
+        <div class="cal-metric">
+          <div class="cal-metric-val empty" id="csm-fat">—</div>
+          <div class="cal-metric-label">🥑 Fett</div>
+        </div>
+      </div>
+      <div class="cal-workout-badge" id="csm-workout" style="display:none"></div>
+    </div>
+
+    <div style="height:8px"></div>
+  </div>
+
   <!-- ════════════════════ BOTTOM NAV ════════════════════ -->
   <nav class="bottom-nav">
     <button class="tab-btn active" id="tab-tracker" onclick="switchTab('tracker')">
       <span class="tab-icon">📋</span>Tracker
+    </button>
+    <button class="tab-btn" id="tab-kalender" onclick="switchTab('kalender')">
+      <span class="tab-icon">📅</span>Kalender
     </button>
     <button class="tab-btn" id="tab-analyse" onclick="switchTab('analyse')">
       <span class="tab-icon">📊</span>Analyse
@@ -807,6 +1084,8 @@ function switchTab(tab) {
   document.getElementById('tab-' + tab).classList.add('active');
   if (tab === 'analyse') SCRIPT_URL ? loadAnalytics() :
     showStatus('analyse-status', 'error', '⚠️ Erst Script URL in Tracker-Tab eintragen');
+  if (tab === 'kalender') SCRIPT_URL ? initCalendar() :
+    showStatus('cal-status', 'error', '⚠️ Erst Script URL in Tracker-Tab eintragen');
 }
 
 // ══════════════════════════════════════════════
@@ -927,7 +1206,6 @@ function renderCharts(rows) {
   charts.macros.data.datasets[2].data = rows.map(r => nullIfEmpty(r.fat));
   charts.macros.update();
 }
-
 // ══════════════════════════════════════════════
 //  UTIL
 // ══════════════════════════════════════════════
@@ -937,6 +1215,183 @@ function showStatus(id, type, text) {
   el.innerHTML = type === 'loading'
     ? `<span class="spin"></span>${text}`
     : text;
+}
+
+// ══════════════════════════════════════════════
+//  CALENDAR
+// ══════════════════════════════════════════════
+let calViewDate = new Date();           // which month we're viewing
+let calSelectedDate = new Date();       // which day is highlighted
+let calDataCache = {};                  // { 'YYYY-MM': [{date,kcal,...}] }
+
+async function initCalendar() {
+  calViewDate = new Date(currentDate);  // sync to tracker's current date
+  calSelectedDate = new Date(currentDate);
+  await loadCalendarMonth(calViewDate);
+  renderCalendar();
+  renderCalSummary(calSelectedDate);
+}
+
+// Load 90-day range once and cache per-month
+async function loadCalendarMonth(d) {
+  const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+  if (calDataCache[key]) return; // already loaded
+  showStatus('cal-status', 'loading', 'Lade Monatsdaten…');
+  try {
+    // Load a ~90 day window centred on the month
+    const r = await fetch(`${SCRIPT_URL}?action=range&days=90`);
+    const rows = await r.json();
+    if (Array.isArray(rows)) {
+      rows.forEach(row => {
+        if (!row.date) return;
+        const mk = row.date.slice(0,7);
+        if (!calDataCache[mk]) calDataCache[mk] = {};
+        calDataCache[mk][row.date] = row;
+      });
+    }
+    // Mark this key as loaded even if no data for it
+    if (!calDataCache[key]) calDataCache[key] = {};
+    showStatus('cal-status', '', '');
+  } catch {
+    showStatus('cal-status', 'error', '⚠️ Fehler beim Laden');
+  }
+}
+
+function calDayData(dateStr) {
+  const mk = dateStr.slice(0,7);
+  return (calDataCache[mk] || {})[dateStr] || null;
+}
+
+function hasData(dateStr) {
+  const d = calDayData(dateStr);
+  if (!d) return false;
+  return !!(d.kcal || d.weight || d.protein || d.sleep || d.workout);
+}
+
+function renderCalendar() {
+  const today = new Date();
+  const yr = calViewDate.getFullYear();
+  const mo = calViewDate.getMonth();
+
+  // Header label
+  document.getElementById('cal-month-label').textContent =
+    calViewDate.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+  document.getElementById('cal-month-sub').textContent =
+    `${new Date(yr, mo+1, 0).getDate()} Tage`;
+
+  // Disable next if current month is today's month or later
+  const nowYM = today.getFullYear() * 12 + today.getMonth();
+  const viewYM = yr * 12 + mo;
+  document.getElementById('cal-next').disabled = viewYM >= nowYM;
+
+  // Build grid
+  // First day of month (0=Sun..6=Sat), convert to Mon-based (0=Mon..6=Sun)
+  const firstDow = (new Date(yr, mo, 1).getDay() + 6) % 7;
+  const daysInMonth = new Date(yr, mo+1, 0).getDate();
+  const prevDays = new Date(yr, mo, 0).getDate();
+
+  const grid = document.getElementById('cal-grid');
+  grid.innerHTML = '';
+
+  let cells = [];
+
+  // Leading empty cells from previous month
+  for (let i = firstDow - 1; i >= 0; i--) {
+    cells.push({ day: prevDays - i, month: mo - 1, year: yr, type: 'prev' });
+  }
+  // Current month
+  for (let d = 1; d <= daysInMonth; d++) {
+    cells.push({ day: d, month: mo, year: yr, type: 'current' });
+  }
+  // Trailing cells
+  const remaining = (7 - (cells.length % 7)) % 7;
+  for (let d = 1; d <= remaining; d++) {
+    cells.push({ day: d, month: mo + 1, year: yr, type: 'next' });
+  }
+
+  cells.forEach(c => {
+    const cellDate = new Date(c.year, c.month, c.day);
+    const dateStr = isoDate(cellDate);
+    const isToday = sameDay(cellDate, today);
+    const isFuture = cellDate > today;
+    const isSelected = sameDay(cellDate, calSelectedDate);
+    const isOther = c.type !== 'current';
+    const withData = !isFuture && hasData(dateStr);
+
+    const el = document.createElement('div');
+    el.className = 'cal-cell';
+    if (isOther) el.classList.add('other-month');
+    if (isFuture) el.classList.add('future');
+    if (isToday) el.classList.add('is-today');
+    if (isSelected) el.classList.add('selected');
+
+    el.innerHTML = `
+      <span class="cal-day-num">${c.day}</span>
+      <div class="cal-dot-row">
+        ${withData ? '<div class="cal-dot"></div>' : ''}
+      </div>`;
+
+    if (!isFuture) {
+      el.onclick = () => selectCalDay(cellDate);
+    }
+    grid.appendChild(el);
+  });
+}
+
+async function calChangeMonth(delta) {
+  calViewDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth() + delta, 1);
+  await loadCalendarMonth(calViewDate);
+  renderCalendar();
+}
+
+function selectCalDay(date) {
+  calSelectedDate = new Date(date);
+  // Update grid selection without full re-render
+  document.querySelectorAll('.cal-cell').forEach(el => el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  renderCalSummary(date);
+}
+
+function renderCalSummary(date) {
+  const dateStr = isoDate(date);
+  const isToday = sameDay(date, new Date());
+  const label = isToday ? 'Heute' :
+    date.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
+  document.getElementById('cal-summary-label').textContent = label;
+
+  const d = calDayData(dateStr);
+  const setM = (id, val, unit) => {
+    const el = document.getElementById('csm-' + id);
+    if (val && val !== '') {
+      el.textContent = val + (unit || '');
+      el.classList.remove('empty');
+    } else {
+      el.textContent = '—';
+      el.classList.add('empty');
+    }
+  };
+
+  setM('kcal', d?.kcal);
+  setM('weight', d?.weight, ' kg');
+  setM('sleep', d?.sleep);
+  setM('protein', d?.protein, 'g');
+  setM('carbs', d?.carbs, 'g');
+  setM('fat', d?.fat, 'g');
+
+  const wb = document.getElementById('csm-workout');
+  if (d?.workout) {
+    wb.textContent = '🏋️ ' + d.workout;
+    wb.style.display = 'block';
+  } else {
+    wb.style.display = 'none';
+  }
+}
+
+function goToSelectedDay() {
+  currentDate = new Date(calSelectedDate);
+  refreshDateDisplay();
+  if (SCRIPT_URL) loadDay();
+  switchTab('tracker');
 }
 </script>
 </body>
