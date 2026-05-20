@@ -741,8 +741,9 @@ function fillForm(d) {
 // ══════════════════════════════════════════════
 async function saveDay() {
   if (!SCRIPT_URL) return;
-  const payload = {
-    action: 'set', date: isoDate(currentDate),
+  const params = new URLSearchParams({
+    action:  'set',
+    date:    isoDate(currentDate),
     kcal:    document.getElementById('inp-kcal').value    || '',
     protein: document.getElementById('inp-protein').value || '',
     carbs:   document.getElementById('inp-carbs').value   || '',
@@ -750,15 +751,12 @@ async function saveDay() {
     weight:  document.getElementById('inp-weight').value  || '',
     workout: currentWorkout,
     sleep:   sleepTouched ? document.getElementById('inp-sleep').value : ''
-  };
+  });
   const btn = document.getElementById('save-btn');
   btn.disabled = true;
   showStatus('save-status', 'loading', 'Wird gespeichert…');
   try {
-    const r = await fetch(SCRIPT_URL, {
-      method: 'POST',
-      body: JSON.stringify(payload)
-    });
+    const r = await fetch(`${SCRIPT_URL}?${params.toString()}`);
     const d = await r.json();
     if (d.success) {
       showStatus('save-status', 'success', '✓ Gespeichert!');
