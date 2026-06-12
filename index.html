@@ -964,24 +964,42 @@ function makeDataset(color, label, isDashed = false) {
     borderDash: isDashed ? [5, 5] : []
   };
 }
+// ══════════════════════════════════════════════
+// CHART MANAGEMENT (FIX)
+// ══════════════════════════════════════════════
+let chartInstances = {};
 
 function initCharts() {
-  Chart.defaults.color = '#76768a';
-  const mk = (id, cfg) => new Chart(document.getElementById(id), cfg);
-  
-  charts.weight = mk('chart-weight', {
-    type: 'line',
-    data: { labels: [], datasets: [makeDataset('#60a5fa', 'Täglich'), makeDataset('#f5a623', '7-Tage Schnitt', true)] },
-    options: { ...CHART_DEFAULTS }
-  });
-  charts.kcal = mk('chart-kcal', { type: 'line', data: { labels: [], datasets: [makeDataset('#f5a623', 'kcal')] }, options: CHART_DEFAULTS });
-  charts.sleep = mk('chart-sleep', { type: 'line', data: { labels: [], datasets: [makeDataset('#a78bfa', 'Schlaf')] }, options: { ...CHART_DEFAULTS, scales: { ...CHART_DEFAULTS.scales, y: { min: 0, max: 100 } } } });
-  charts.macros = mk('chart-macros', {
-    type: 'line',
-    data: { labels: [], datasets: [{...makeDataset('#4ade80', 'Pro'), fill: false}, {...makeDataset('#a78bfa', 'Carb'), fill: false}, {...makeDataset('#fb923c', 'Fett'), fill: false}] },
-    options: { ...CHART_DEFAULTS, plugins: { legend: { display: true, labels: { color: '#76768a', font: { size: 11, family: 'Outfit' }, boxWidth: 12 } } } }
+  const configs = {
+    'chart-weight': { type: 'line', data: { labels: [], datasets: [] }, options: { responsive: true, maintainAspectRatio: false } },
+    'chart-kcal':   { type: 'bar',  data: { labels: [], datasets: [] }, options: { responsive: true, maintainAspectRatio: false } },
+    'chart-macros': { type: 'bar',  data: { labels: [], datasets: [] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { stacked: true }, y: { stacked: true } } } },
+    'chart-sleep':  { type: 'line', data: { labels: [], datasets: [] }, options: { responsive: true, maintainAspectRatio: false } }
+  };
+
+  Object.keys(configs).forEach(id => {
+    const ctx = document.getElementById(id).getContext('2d');
+    // WICHTIG: Zerstöre alte Instanz, falls vorhanden
+    if (chartInstances[id]) {
+      chartInstances[id].destroy();
+    }
+    chartInstances[id] = new Chart(ctx, configs[id]);
   });
 }
+
+// Beim Tab-Wechsel (in deiner switchTab-Funktion) solltest du die Charts 
+// ggf. neu rendern oder sicherstellen, dass sie korrekt geladen wurden:
+function switchTab(tabId) {
+  // ... vorhandener Tab-Wechsel Code ...
+  
+  // Wenn der Analyse-Tab aktiv wird:
+  if (tabId === 'analyse') {
+    setTimeout(() => {
+      Object.values(chartInstances).forEach(chart => chart.update());
+    }, 100);
+  }
+}
+
 
 function setRange(days, el) {
   currentRange = days;
