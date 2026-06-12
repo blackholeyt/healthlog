@@ -107,14 +107,16 @@
       background: var(--border);
     }
     .nav-arrow {
-      width: 42px; height: 42px;
+      width: 42px;
+      height: 42px;
       border: 1px solid var(--border);
       border-radius: 13px;
       background: var(--surface);
       color: var(--text);
       font-size: 22px;
       cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: center;
+      justify-content: center;
       transition: background 0.15s, opacity 0.2s;
       flex-shrink: 0;
     }
@@ -126,7 +128,8 @@
       display: inline-block;
       background: var(--accent);
       color: #000;
-      font-size: 9px; font-weight: 700;
+      font-size: 9px;
+      font-weight: 700;
       padding: 2px 8px;
       border-radius: 99px;
       letter-spacing: 0.08em;
@@ -146,85 +149,23 @@
       position: relative;
       overflow: hidden;
     }
-    .game-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .game-level {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--accent);
-      display: flex; align-items: center;
-      gap: 6px;
-    }
-    .game-xp-text {
-      font-family: var(--font-mono);
-      font-size: 11px; color: var(--text-dim);
-    }
-    .progress-track {
-      width: 100%;
-      height: 6px;
-      background: var(--surface2);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--accent) 0%, #ffcd69 100%);
-      border-radius: 99px;
-      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .game-streak {
-      background: rgba(251, 146, 60, 0.12);
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 20px;
-      border: 1px solid rgba(251, 146, 60, 0.2);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .daily-quests {
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .quest-title {
-      font-size: 10px;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      letter-spacing: 0.06em;
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-    .quest-item {
-      font-size: 12px;
-      color: var(--text-dim);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 4px;
-      transition: all 0.2s ease;
-    }
-    .quest-item .material-symbols-rounded {
-      font-size: 14px;
-    }
-    .quest-item.completed {
-      color: var(--green);
-      opacity: 0.6;
-    }
-    .quest-item.completed .material-symbols-rounded {
-      font-variation-settings: 'FILL' 1;
-    }
+    .game-header { display: flex; justify-content: space-between; align-items: center; }
+    .game-level { font-weight: 700; font-size: 15px; color: var(--accent); display: flex; align-items: center; gap: 6px; }
+    .game-xp-text { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+    .progress-track { width: 100%; height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent) 0%, #ffcd69 100%); border-radius: 99px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .game-streak { background: rgba(251, 146, 60, 0.12); color: var(--orange); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; border: 1px solid rgba(251, 146, 60, 0.2); display: flex; align-items: center; gap: 4px; }
+    .daily-quests { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+    .quest-title { font-size: 10px; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 6px; font-weight: 700; }
+    .quest-item { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 6px; margin-bottom: 4px; transition: all 0.2s ease; }
+    .quest-item .material-symbols-rounded { font-size: 14px; }
+    .quest-item.completed { color: var(--green); opacity: 0.6; }
+    .quest-item.completed .material-symbols-rounded { font-variation-settings: 'FILL' 1; }
 
     /* ── SECTION LABEL ── */
     .section-label {
-      font-size: 10px; font-weight: 700;
+      font-size: 10px;
+      font-weight: 700;
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -237,12 +178,14 @@
 
     /* ── METRIC CARDS ── */
     .metrics-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-bottom: 10px;
     }
     .card {
-      background: var(--surface); border: 1px solid var(--border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 14px 14px 12px;
       position: relative;
@@ -251,7 +194,8 @@
     }
     .card:active { transform: scale(0.98); }
     .card::before {
-      content: ''; position: absolute;
+      content: '';
+      position: absolute;
       top: 0; left: 14px; right: 14px;
       height: 2px;
       border-radius: 0 0 2px 2px;
@@ -261,25 +205,29 @@
     .card-icon {
       font-size: 20px;
       position: absolute;
-      top: 12px; right: 13px; opacity: 0.25;
+      top: 12px; right: 13px;
+      opacity: 0.25;
       color: var(--c, var(--text));
     }
     .card-label {
       font-size: 10px;
-      font-weight: 600; color: var(--text-dim);
+      font-weight: 600;
+      color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 10px;
     }
     .metric-input {
-      width: 100%; background: transparent;
+      width: 100%;
+      background: transparent;
       border: none;
       border-bottom: 1.5px solid transparent;
       color: var(--text);
       font-family: var(--font-mono);
       font-size: 26px;
       font-weight: 700;
-      outline: none; padding: 2px 0;
+      outline: none;
+      padding: 2px 0;
       transition: border-color 0.15s;
     }
     .metric-input:focus { border-bottom-color: var(--c, var(--accent)); }
@@ -289,7 +237,8 @@
 
     /* ── NOTE TEXTAREA ── */
     .note-textarea {
-      width: 100%; min-height: 80px;
+      width: 100%;
+      min-height: 80px;
       background: transparent;
       border: none;
       resize: none;
@@ -304,7 +253,8 @@
 
     /* ── SLEEP SLIDER ── */
     .sleep-val {
-      font-family: var(--font-mono); font-size: 28px;
+      font-family: var(--font-mono);
+      font-size: 28px;
       font-weight: 700;
       color: var(--purple);
       margin-bottom: 8px;
@@ -316,7 +266,8 @@
       width: 100%;
       -webkit-appearance: none;
       appearance: none;
-      height: 5px; border-radius: 3px;
+      height: 5px;
+      border-radius: 3px;
       outline: none;
       cursor: pointer;
       background: linear-gradient(
@@ -330,13 +281,15 @@
     input[type=range].sleep-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 24px; height: 24px;
-      border-radius: 50%; background: var(--purple);
+      border-radius: 50%;
+      background: var(--purple);
       box-shadow: 0 0 0 4px var(--purple-dim), 0 2px 6px rgba(0,0,0,0.4);
     }
 
     /* ── BUTTONS & STATUS ── */
     .save-btn {
-      width: 100%; background: var(--accent);
+      width: 100%;
+      background: var(--accent);
       color: #000;
       border: none;
       border-radius: var(--radius);
@@ -345,14 +298,16 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      letter-spacing: 0.02em; margin-top: 6px;
+      letter-spacing: 0.02em;
+      margin-top: 6px;
       transition: opacity 0.2s, transform 0.12s;
     }
     .save-btn:active { transform: scale(0.98); }
     .save-btn:disabled { opacity: 0.35; }
 
     .status-bar {
-      border-radius: 12px; padding: 10px 14px;
+      border-radius: 12px;
+      padding: 10px 14px;
       font-size: 13px;
       font-weight: 500;
       margin-top: 10px;
@@ -363,21 +318,24 @@
     .status-bar.show { display: flex; }
     .status-bar.loading { background: var(--accent-dim); color: var(--accent); }
     .status-bar.success { background: var(--green-dim); color: var(--green); }
-    .status-bar.error   { background: var(--red-dim); color: var(--red);   }
+    .status-bar.error   { background: var(--red-dim); color: var(--red); }
 
     /* ── POPUPS / TOASTS ── */
     .toast-popup {
-      position: fixed; top: calc(env(safe-area-inset-top, 0px) + 20px);
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 0px) + 20px);
       left: 50%;
       transform: translateX(-50%) translateY(-20px) scale(0.95);
       background: var(--blue);
       color: #000;
       padding: 12px 24px;
-      border-radius: 99px; font-weight: 700;
+      border-radius: 99px;
+      font-weight: 700;
       font-size: 14px;
       box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
       opacity: 0;
-      pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       z-index: 9999;
       display: flex; align-items: center; gap: 8px;
     }
@@ -389,23 +347,33 @@
       box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
     }
 
+    #gym-pr-toast {
+      background: var(--orange);
+      color: #000;
+      box-shadow: 0 8px 24px rgba(251, 146, 60, 0.4);
+    }
+
     /* ── BOTTOM NAV ── */
     .bottom-nav {
-      position: fixed; bottom: 0; left: 50%;
+      position: fixed;
+      bottom: 0; left: 50%;
       transform: translateX(-50%);
       width: 100%; max-width: 430px;
       background: rgba(17,17,32,0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border); display: flex;
+      border-top: 1px solid var(--border);
+      display: flex;
       height: var(--nav-h);
       padding-bottom: env(safe-area-inset-bottom, 0);
       z-index: 100;
     }
     .tab-btn {
-      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      flex: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 4px; border: none; background: transparent; color: var(--text-dim);
-      font-family: var(--font-ui); font-size: 11px; font-weight: 600; cursor: pointer;
+      font-family: var(--font-ui); font-size: 11px;
+      font-weight: 600; cursor: pointer;
       padding-top: 6px; transition: color 0.2s;
     }
     .tab-btn.active { color: var(--accent); }
@@ -455,17 +423,7 @@
     .cal-metric-label { font-size: 9px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-top: 4px; display: flex; align-items: center; justify-content: center; gap: 2px; }
     .cal-workout-badge { background: var(--green-dim); color: var(--green); border-radius: 10px; padding: 8px; font-size: 12px; font-weight: 600; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 4px; }
     
-    .cal-note-box {
-      background: var(--surface2);
-      border-left: 3px solid var(--blue);
-      border-radius: 6px;
-      padding: 10px;
-      font-size: 13px;
-      color: var(--text);
-      margin-top: 8px;
-      line-height: 1.4;
-      font-style: italic;
-    }
+    .cal-note-box { background: var(--surface2); border-left: 3px solid var(--blue); border-radius: 6px; padding: 10px; font-size: 13px; color: var(--text); margin-top: 8px; line-height: 1.4; font-style: italic; }
 
     .spin { display: inline-block; width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: rot 0.65s linear infinite; }
     @keyframes rot { to { transform: rotate(360deg); } }
@@ -482,6 +440,11 @@
   <div id="levelup-toast" class="toast-popup">
     <span class="material-symbols-rounded">local_activity</span>
     <span class="toast-text">LEVEL UP! 🎉</span>
+  </div>
+
+  <div id="gym-pr-toast" class="toast-popup">
+    <span class="material-symbols-rounded">fitness_center</span>
+    <span class="toast-text">Neuer Gym-PR! 🔥 💪</span>
   </div>
 
   <div class="page active" id="page-tracker">
@@ -508,7 +471,7 @@
         <div class="progress-bar" id="game-progress"></div>
       </div>
       <div class="game-xp-text" id="game-xp-lbl" style="margin-top: 2px;">0 / 100 XP</div>
-      
+   
       <div class="daily-quests">
         <div class="quest-title">Heutige Quests:</div>
         <div class="quest-item" id="q-kcal"><span class="material-symbols-rounded">radio_button_unchecked</span> Kalorien erfassen (+10 XP)</div>
@@ -594,6 +557,28 @@
     <button class="reset-url-btn" id="reset-url-btn"><span class="material-symbols-rounded">settings</span> Einstellungen ändern</button>
   </div>
 
+  <div class="page" id="page-gym">
+    <div class="analyse-header" style="padding-top: calc(env(safe-area-inset-top, 0px) + 16px);">
+      <div class="analyse-title">Gym Workout</div>
+      <div class="analyse-sub">Logge deine Übungen & brich Rekorde</div>
+    </div>
+
+    <div class="setup-banner" style="margin: 0 0 20px 0;">
+      <strong><span class="material-symbols-rounded">add_circle</span> Neue Übung erstellen</strong>
+      <div class="setup-input-group">
+        <input class="setup-url-input" id="gym-new-name" placeholder="z.B. Bankdrücken, Kniebeugen..." type="text">
+        <button class="save-btn" id="btn-add-exercise" style="font-size:14px; padding:12px; background: var(--blue); color: #000;">Übung hinzufügen</button>
+      </div>
+    </div>
+
+    <div class="status-bar" id="gym-status"></div>
+
+    <div class="section-label"><span class="material-symbols-rounded">format_list_bulleted</span> Deine Übungen</div>
+    <div id="gym-exercises-container" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;"></div>
+
+    <button class="save-btn" id="gym-save-btn" style="background: var(--blue);">Workout Speichern</button>
+  </div>
+
   <div class="page" id="page-analyse">
     <div class="analyse-header">
       <div class="analyse-title">Analyse</div>
@@ -660,640 +645,753 @@
 
   <nav class="bottom-nav">
     <button class="tab-btn active" data-tab="tracker"><span class="material-symbols-rounded tab-icon">assignment</span>Tracker</button>
+    <button class="tab-btn" data-tab="gym"><span class="material-symbols-rounded tab-icon">fitness_center</span>Gym</button>
     <button class="tab-btn" data-tab="kalender"><span class="material-symbols-rounded tab-icon">calendar_month</span>Kalender</button>
     <button class="tab-btn" data-tab="analyse"><span class="material-symbols-rounded tab-icon">monitoring</span>Analyse</button>
   </nav>
-
 </div>
 
 <script>
-// ══════════════════════════════════════════════
-//  STATE MANAGEMENT & GAMIFICATION
-// ══════════════════════════════════════════════
-const URL_KEY = 'healthlog_url';
-const GOAL_KEY = 'healthlog_goal';
-const WEIGHT_KEY = 'healthlog_best_weight';
-const XP_KEY = 'healthlog_total_xp';
-const STREAK_KEY = 'healthlog_streak';
-const LAST_DATE_KEY = 'healthlog_last_date';
-const TRACKED_HISTORY_KEY = 'healthlog_xp_history'; // Neu: Verhindert doppelte XP am selben Tag
+  // ══════════════════════════════════════════════
+  // STATE MANAGEMENT & GAMIFICATION
+  // ══════════════════════════════════════════════
+  const URL_KEY = 'healthlog_url';
+  const GOAL_KEY = 'healthlog_goal';
+  const WEIGHT_KEY = 'healthlog_best_weight';
+  const XP_KEY = 'healthlog_total_xp';
+  const STREAK_KEY = 'healthlog_streak';
+  const LAST_DATE_KEY = 'healthlog_last_date';
+  const TRACKED_HISTORY_KEY = 'healthlog_xp_history';
+  const EXERCISES_KEY = 'healthlog_exercises';
 
-const AppState = {
-  scriptUrl: localStorage.getItem(URL_KEY) || '',
-  goal: localStorage.getItem(GOAL_KEY) || 'cut',
-  bestWeight: localStorage.getItem(WEIGHT_KEY) ? parseFloat(localStorage.getItem(WEIGHT_KEY)) : null,
-  totalXp: localStorage.getItem(XP_KEY) ? parseInt(localStorage.getItem(XP_KEY)) : 0,
-  lastKnownLevel: null,
-  
-  currentDate: new Date(),
-  currentWorkout: '',
-  currentNote: '',
-  sleepTouched: false,
-  
-  cache: {},
-  calDataCache: {},
-  charts: {},
-  currentRange: 7,
-  
-  calViewDate: new Date(),
-  calSelectedDate: new Date()
-};
+  const AppState = {
+    scriptUrl: localStorage.getItem(URL_KEY) || '',
+    goal: localStorage.getItem(GOAL_KEY) || 'cut',
+    bestWeight: localStorage.getItem(WEIGHT_KEY) ? parseFloat(localStorage.getItem(WEIGHT_KEY)) : null,
+    totalXp: localStorage.getItem(XP_KEY) ? parseInt(localStorage.getItem(XP_KEY)) : 0,
+    lastKnownLevel: null,
+    currentDate: new Date(),
+    currentWorkout: '',
+    currentNote: '',
+    sleepTouched: false,
+    cache: {},
+    calDataCache: {},
+    charts: {},
+    currentRange: 7,
+    calViewDate: new Date(),
+    calSelectedDate: new Date(),
+    
+    // Gym spezifischer State
+    gymExercises: JSON.parse(localStorage.getItem(EXERCISES_KEY)) || ["Bankdrücken", "Kniebeugen", "Kreuzheben"],
+    gymHistory: {}
+  };
 
-let loadTimeout;
+  let loadTimeout;
 
-// ══════════════════════════════════════════════
-//  INITIALISIERUNG
-// ══════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-  initEventListeners();
-  refreshDateDisplay();
-  initCharts();
-  updateGamificationUI(false);
+  // ══════════════════════════════════════════════
+  // INITIALISIERUNG
+  // ══════════════════════════════════════════════
+  document.addEventListener('DOMContentLoaded', () => {
+    initEventListeners();
+    refreshDateDisplay();
+    initCharts();
+    updateGamificationUI(false);
+    
+    if (AppState.scriptUrl) {
+      document.getElementById('setup-banner').style.display = 'none';
+      document.getElementById('reset-url-btn').classList.add('visible');
+      loadDay();
+      fetchGymHistory();
+    } else {
+      document.getElementById('save-btn').disabled = true;
+      renderGymExercises();
+    }
+  });
+
+  function triggerVibration(pattern = 15) {
+    if ('vibrate' in navigator) {
+      navigator.vibrate(pattern);
+    }
+  }
+
+  function initEventListeners() {
+    document.getElementById('btn-prev-day').addEventListener('click', () => { triggerVibration(10); changeDay(-1); });
+    document.getElementById('btn-next-day').addEventListener('click', () => { triggerVibration(10); changeDay(1); });
+    document.getElementById('save-setup-btn').addEventListener('click', saveSetup);
+    document.getElementById('reset-url-btn').addEventListener('click', resetSetup);
+    
+    document.querySelectorAll('.metric-input[type="number"]').forEach(input => {
+      input.addEventListener('input', (e) => { if (parseFloat(e.target.value) < 0) e.target.value = 0; });
+    });
+
+    document.getElementById('inp-kcal').addEventListener('input', updateQuestsUI);
+    document.getElementById('inp-protein').addEventListener('input', updateQuestsUI);
+    document.getElementById('inp-workout').addEventListener('input', (e) => { AppState.currentWorkout = e.target.value; updateQuestsUI(); });
+    document.getElementById('inp-note').addEventListener('input', (e) => AppState.currentNote = e.target.value);
+    document.getElementById('inp-sleep').addEventListener('input', (e) => onSleepInput(e.target.value));
+    document.getElementById('save-btn').addEventListener('click', saveDay);
+    
+    // Gym Listeners
+    document.getElementById('btn-add-exercise').addEventListener('click', createCustomExercise);
+    document.getElementById('gym-save-btn').addEventListener('click', saveGymWorkout);
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        triggerVibration(12);
+        switchTab(btn.getAttribute('data-tab'));
+      });
+    });
+
+    document.querySelectorAll('.range-pill').forEach(pill => {
+      pill.addEventListener('click', (e) => { triggerVibration(10); setRange(parseInt(pill.getAttribute('data-days')), pill); });
+    });
+    
+    document.getElementById('cal-prev-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(-1); });
+    document.getElementById('cal-next-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(1); });
+    document.getElementById('btn-go-to-day').addEventListener('click', () => { triggerVibration(15); goToSelectedDay(); });
+  }
+
+  // ══════════════════════════════════════════════
+  // GAMIFICATION LOGIK
+  // ══════════════════════════════════════════════
+  function getXpHistory() {
+    try { return JSON.parse(localStorage.getItem(TRACKED_HISTORY_KEY)) || {}; } catch(e) { return {}; }
+  }
+  function saveXpHistory(history) { localStorage.setItem(TRACKED_HISTORY_KEY, JSON.stringify(history)); }
   
-  if (AppState.scriptUrl) {
+  function calculateAndAwardXp(dateStr) {
+    const history = getXpHistory();
+    if (!history[dateStr]) {
+      history[dateStr] = { base: false, kcal: false, protein: false, sleep: false, workout: false };
+    }
+    const currentDayXp = history[dateStr];
+    let totalAwardedThisRun = 0;
+
+    if (!currentDayXp.base) { totalAwardedThisRun += 30; currentDayXp.base = true; }
+    if (!currentDayXp.kcal && document.getElementById('inp-kcal').value) { totalAwardedThisRun += 10; currentDayXp.kcal = true; }
+    if (!currentDayXp.protein && document.getElementById('inp-protein').value) { totalAwardedThisRun += 10; currentDayXp.protein = true; }
+    if (!currentDayXp.sleep && AppState.sleepTouched) { totalAwardedThisRun += 10; currentDayXp.sleep = true; }
+    if (!currentDayXp.workout && document.getElementById('inp-workout').value) { totalAwardedThisRun += 25; currentDayXp.workout = true; }
+
+    if (totalAwardedThisRun > 0) {
+      AppState.totalXp += totalAwardedThisRun;
+      localStorage.setItem(XP_KEY, AppState.totalXp);
+      saveXpHistory(history);
+      updateGamificationUI(true);
+    }
+  }
+
+  function checkStreak() {
+    const todayStr = isoDate(new Date());
+    const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = isoDate(yesterday);
+    let currentStreak = parseInt(localStorage.getItem(STREAK_KEY)) || 0;
+    const lastTrackedDate = localStorage.getItem(LAST_DATE_KEY);
+
+    if (lastTrackedDate === todayStr) return;
+    if (lastTrackedDate === yesterdayStr) { currentStreak += 1; }
+    else if (lastTrackedDate !== todayStr) { currentStreak = 1; }
+
+    localStorage.setItem(STREAK_KEY, currentStreak);
+    localStorage.setItem(LAST_DATE_KEY, todayStr);
+    updateGamificationUI(false);
+  }
+
+  function updateGamificationUI(animate = false) {
+    const currentLevel = Math.floor(AppState.totalXp / 100) + 1;
+    const xpInCurrentLevel = AppState.totalXp % 100;
+    const progressPct = xpInCurrentLevel;
+
+    document.getElementById('game-level-lbl').innerHTML = `<span class="material-symbols-rounded">military_tech</span> Level ${currentLevel} Athlete`;
+    document.getElementById('game-xp-lbl').textContent = `${xpInCurrentLevel} / 100 XP`;
+    document.getElementById('game-progress').style.width = `${progressPct}%`;
+
+    const streakVal = parseInt(localStorage.getItem(STREAK_KEY)) || 0;
+    const streakEl = document.getElementById('game-streak-lbl');
+    if (streakVal > 0) {
+      document.getElementById('game-streak-val').textContent = streakVal;
+      streakEl.style.display = 'flex';
+    } else {
+      streakEl.style.display = 'none';
+    }
+
+    if (animate && AppState.lastKnownLevel !== null && currentLevel > AppState.lastKnownLevel) {
+      showToast('levelup-toast');
+      triggerVibration([100, 50, 100, 50, 150]);
+    }
+    AppState.lastKnownLevel = currentLevel;
+    updateQuestsUI();
+  }
+
+  function updateQuestsUI() {
+    const history = getXpHistory()[isoDate(AppState.currentDate)] || {};
+    const setQ = (id, checked) => {
+      const el = document.getElementById(id);
+      if (checked) { el.classList.add('completed'); el.querySelector('.material-symbols-rounded').textContent = 'check_circle'; }
+      else { el.classList.remove('completed'); el.querySelector('.material-symbols-rounded').textContent = 'radio_button_unchecked'; }
+    };
+    setQ('q-kcal', history.kcal || document.getElementById('inp-kcal').value);
+    setQ('q-protein', history.protein || document.getElementById('inp-protein').value);
+    setQ('q-sleep', history.sleep || AppState.sleepTouched);
+    setQ('q-workout', history.workout || document.getElementById('inp-workout').value);
+  }
+
+  function showToast(id) {
+    const toast = document.getElementById(id);
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3500);
+  }
+
+  // ══════════════════════════════════════════════
+  // GYM WORKOUT TRACKER LOGIK
+  // ══════════════════════════════════════════════
+  function fetchGymHistory() {
+    if (!AppState.scriptUrl) return;
+    const statusEl = document.getElementById('gym-status');
+    statusEl.textContent = "Lade vorherige Trainingsdaten...";
+    statusEl.className = "status-bar show loading";
+    
+    fetch(`${AppState.scriptUrl}?action=getGymHistory`)
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          AppState.gymHistory = res.data;
+          statusEl.className = "status-bar";
+          renderGymExercises();
+        } else {
+          statusEl.className = "status-bar show error";
+          statusEl.textContent = "Fehler beim Laden des Trainingsverlaufs.";
+        }
+      })
+      .catch(err => {
+        statusEl.className = "status-bar show error";
+        statusEl.textContent = "Netzwerkfehler beim Gym-Abruf.";
+        renderGymExercises();
+      });
+  }
+
+  function renderGymExercises() {
+    const container = document.getElementById('gym-exercises-container');
+    container.innerHTML = '';
+
+    if (AppState.gymExercises.length === 0) {
+      container.innerHTML = `<div style="text-align:center; color:var(--text-dim); font-size:14px; padding:30px;">Noch keine Übungen definiert. Erstelle oben deine Erste!</div>`;
+      return;
+    }
+
+    AppState.gymExercises.forEach((exName, index) => {
+      const lastData = AppState.gymHistory[exName];
+      const lastWeightInfo = lastData ? `Letztes Mal: ${lastData.gewicht} kg (${lastData.sets} Sätze)` : 'Erstes Training dieser Übung';
+
+      const card = document.createElement('div');
+      card.className = 'card card-full';
+      card.style = '--c: var(--blue); padding: 16px; margin-bottom: 2px;';
+      card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <div>
+            <div style="font-size:14px; color:var(--text); font-weight:600;">${exName}</div>
+            <div style="font-size:11px; color:var(--text-dim); font-weight:500; margin-top:2px;">${lastWeightInfo}</div>
+          </div>
+          <span class="material-symbols-rounded" style="color:var(--red); font-size:18px; opacity:0.6; cursor:pointer;" onclick="deleteExercise(${index})">delete</span>
+        </div>
+        
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+          <div>
+            <div class="card-unit" style="margin-bottom:4px; font-size:10px; text-transform:uppercase; letter-spacing:0.05em;">Gewicht (kg)</div>
+            <input class="metric-input gym-weight-input" data-name="${exName}" type="number" step="0.5" min="0" placeholder="0" style="font-size:20px; border-bottom: 1.5px solid var(--border);">
+          </div>
+          <div>
+            <div class="card-unit" style="margin-bottom:4px; font-size:10px; text-transform:uppercase; letter-spacing:0.05em;">Sätze (Sets)</div>
+            <input class="metric-input gym-sets-input" data-name="${exName}" type="number" min="0" placeholder="0" style="font-size:20px; border-bottom: 1.5px solid var(--border);">
+          </div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function createCustomExercise() {
+    const input = document.getElementById('gym-new-name');
+    const name = input.value.trim();
+    if (!name) return;
+    
+    if (AppState.gymExercises.includes(name)) {
+      alert("Diese Übung existiert bereits!");
+      return;
+    }
+    
+    AppState.gymExercises.push(name);
+    localStorage.setItem(EXERCISES_KEY, JSON.stringify(AppState.gymExercises));
+    input.value = '';
+    triggerVibration(20);
+    renderGymExercises();
+  }
+
+  function deleteExercise(index) {
+    if(confirm(`Möchtest du "${AppState.gymExercises[index]}" wirklich löschen?`)) {
+      AppState.gymExercises.splice(index, 1);
+      localStorage.setItem(EXERCISES_KEY, JSON.stringify(AppState.gymExercises));
+      renderGymExercises();
+    }
+  }
+
+  function saveGymWorkout() {
+    if (!AppState.scriptUrl) {
+      alert("Bitte verbinde zuerst deine Apps Script URL im Tracker-Tab!");
+      return;
+    }
+
+    const weightInputs = document.querySelectorAll('.gym-weight-input');
+    const setsInputs = document.querySelectorAll('.gym-sets-input');
+    const entries = [];
+    let prDetected = false;
+
+    weightInputs.forEach((input, idx) => {
+      const name = input.getAttribute('data-name');
+      const gewicht = parseFloat(input.value) || 0;
+      const sets = parseInt(setsInputs[idx].value) || 0;
+
+      if (gewicht > 0) {
+        entries.push({ name, gewicht, sets });
+        const previousBest = AppState.gymHistory[name] ? AppState.gymHistory[name].gewicht : 0;
+        if (gewicht > previousBest) {
+          prDetected = true;
+        }
+      }
+    });
+
+    if (entries.length === 0) {
+      alert("Bitte trage für mindestens eine Übung ein Gewicht ein!");
+      return;
+    }
+
+    const statusEl = document.getElementById('gym-status');
+    statusEl.textContent = "Workout wird synchronisiert...";
+    statusEl.className = "status-bar show loading";
+    document.getElementById('gym-save-btn').disabled = true;
+
+    const payload = {
+      action: "saveGym",
+      date: AppState.currentDate.toISOString(),
+      entries: entries
+    };
+
+    fetch(AppState.scriptUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      statusEl.className = "status-bar show success";
+      statusEl.textContent = "Workout erfolgreich gespeichert! 🔥";
+      triggerVibration([40, 30, 40]);
+
+      if (prDetected) {
+        setTimeout(() => showToast('gym-pr-toast'), 500);
+      }
+
+      weightInputs.forEach(i => i.value = '');
+      setsInputs.forEach(i => i.value = '');
+
+      entries.forEach(entry => {
+        if(!AppState.gymHistory[entry.name] || entry.gewicht > AppState.gymHistory[entry.name].gewicht) {
+           AppState.gymHistory[entry.name] = { gewicht: entry.gewicht, sets: entry.sets };
+        }
+      });
+
+      // Gibt EP für ein abgeschlossenes Workout im Tracker
+      const historyStr = isoDate(AppState.currentDate);
+      const history = getXpHistory();
+      if (!history[historyStr]) history[historyStr] = {};
+      if (!history[historyStr].workout) {
+        AppState.totalXp += 25;
+        localStorage.setItem(XP_KEY, AppState.totalXp);
+        history[historyStr].workout = true;
+        saveXpHistory(history);
+        updateGamificationUI(true);
+      }
+
+      setTimeout(() => {
+        statusEl.className = "status-bar";
+        document.getElementById('gym-save-btn').disabled = false;
+        renderGymExercises();
+      }, 2500);
+    })
+    .catch(err => {
+      statusEl.className = "status-bar show error";
+      statusEl.textContent = "Fehler bei der Serverübertragung.";
+      document.getElementById('gym-save-btn').disabled = false;
+    });
+  }
+
+  // ══════════════════════════════════════════════
+  // CORE APP UTILITIES & CORE LOGIC
+  // ══════════════════════════════════════════════
+  const isoDate = (d) => d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  const sameDay = (d1, d2) => d1.getFullYear()===d2.getFullYear() && d1.getMonth()===d2.getMonth() && d1.getDate()===d2.getDate();
+
+  function refreshDateDisplay() {
+    const d = AppState.currentDate;
+    const today = new Date();
+    document.getElementById('lbl-today').style.display = sameDay(d, today) ? 'inline-block' : 'none';
+    document.getElementById('lbl-weekday').textContent = sameDay(d, today) ? 'Heute' : d.toLocaleDateString('de-DE', { weekday: 'long' });
+    document.getElementById('lbl-long').textContent = d.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+  }
+
+  function changeDay(offset) {
+    AppState.currentDate.setDate(AppState.currentDate.getDate() + offset);
+    refreshDateDisplay();
+    loadDay();
+  }
+
+  function switchTab(tabId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    
+    const targetPage = document.getElementById('page-' + tabId);
+    const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+    if (targetPage) targetPage.classList.add('active');
+    if (targetBtn) targetBtn.classList.add('active');
+
+    if (tabId === 'analyse') fetchAnalytics();
+    if (tabId === 'kalender') renderCalendar();
+    if (tabId === 'gym') fetchGymHistory();
+  }
+
+  function onSleepInput(val) {
+    AppState.sleepTouched = true;
+    const disp = document.getElementById('sleep-display');
+    if (val == 0) { disp.textContent = '—'; disp.classList.add('empty'); }
+    else { disp.textContent = val + ' / 100'; disp.classList.remove('empty'); }
+    const input = document.getElementById('inp-sleep');
+    input.style.setProperty('--pct', val + '%');
+    updateQuestsUI();
+  }
+
+  function saveSetup() {
+    const url = document.getElementById('url-input').value.trim();
+    const goal = document.getElementById('goal-select').value;
+    if (!url) { alert("Bitte eine gültige URL eingeben"); return; }
+    AppState.scriptUrl = url;
+    AppState.goal = goal;
+    localStorage.setItem(URL_KEY, url);
+    localStorage.setItem(GOAL_KEY, goal);
     document.getElementById('setup-banner').style.display = 'none';
     document.getElementById('reset-url-btn').classList.add('visible');
+    document.getElementById('save-btn').disabled = false;
     loadDay();
-  } else {
-    document.getElementById('save-btn').disabled = true;
+    fetchGymHistory();
   }
-});
 
-function triggerVibration(pattern = 15) {
-  if ('vibrate' in navigator) {
-    navigator.vibrate(pattern);
-  }
-}
-
-function initEventListeners() {
-  document.getElementById('btn-prev-day').addEventListener('click', () => { triggerVibration(10); changeDay(-1); });
-  document.getElementById('btn-next-day').addEventListener('click', () => { triggerVibration(10); changeDay(1); });
-  
-  document.getElementById('save-setup-btn').addEventListener('click', saveSetup);
-  document.getElementById('reset-url-btn').addEventListener('click', resetSetup);
-  
-  document.querySelectorAll('.metric-input[type="number"]').forEach(input => {
-    input.addEventListener('input', (e) => {
-      if (parseFloat(e.target.value) < 0) e.target.value = 0;
-    });
-  });
-  
-  document.getElementById('inp-kcal').addEventListener('input', updateQuestsUI);
-  document.getElementById('inp-protein').addEventListener('input', updateQuestsUI);
-  document.getElementById('inp-workout').addEventListener('input', (e) => {
-    AppState.currentWorkout = e.target.value;
-    updateQuestsUI();
-  });
-  
-  document.getElementById('inp-note').addEventListener('input', (e) => AppState.currentNote = e.target.value);
-  document.getElementById('inp-sleep').addEventListener('input', (e) => onSleepInput(e.target.value));
-  
-  document.getElementById('save-btn').addEventListener('click', saveDay);
-  
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      triggerVibration(12);
-      switchTab(btn.getAttribute('data-tab'));
-    });
-  });
-  
-  document.querySelectorAll('.range-pill').forEach(pill => {
-    pill.addEventListener('click', (e) => {
-      triggerVibration(10);
-      setRange(parseInt(pill.getAttribute('data-days')), pill);
-    });
-  });
-  
-  document.getElementById('cal-prev-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(-1); });
-  document.getElementById('cal-next-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(1); });
-  
-  document.getElementById('btn-go-to-day').addEventListener('click', () => { triggerVibration(15); goToSelectedDay(); });
-}
-
-// ══════════════════════════════════════════════
-//  GAMIFICATION LOGIK (ANTI-CHEAT & VALIDIERUNG)
-// ══════════════════════════════════════════════
-function getXpHistory() {
-  try {
-    return JSON.parse(localStorage.getItem(TRACKED_HISTORY_KEY)) || {};
-  } catch(e) {
-    return {};
-  }
-}
-
-function saveXpHistory(history) {
-  localStorage.setItem(TRACKED_HISTORY_KEY, JSON.stringify(history));
-}
-
-function calculateAndAwardXp(dateStr) {
-  const history = getXpHistory();
-  if (!history[dateStr]) {
-    history[dateStr] = { base: false, kcal: false, protein: false, sleep: false, workout: false };
-  }
-  
-  const currentDayXp = history[dateStr];
-  let totalAwardedThisRun = 0;
-  
-  // 1. Basis-XP fürs Speichern (30 XP)
-  if (!currentDayXp.base) {
-    totalAwardedThisRun += 30;
-    currentDayXp.base = true;
-  }
-  
-  // 2. Quest: Kalorien (+10 XP)
-  if (!currentDayXp.kcal && document.getElementById('inp-kcal').value) {
-    totalAwardedThisRun += 10;
-    currentDayXp.kcal = true;
-  }
-  
-  // 3. Quest: Protein (+10 XP)
-  if (!currentDayXp.protein && document.getElementById('inp-protein').value) {
-    totalAwardedThisRun += 10;
-    currentDayXp.protein = true;
-  }
-  
-  // 4. Quest: Schlaf (+10 XP)
-  if (!currentDayXp.sleep && AppState.sleepTouched) {
-    totalAwardedThisRun += 10;
-    currentDayXp.sleep = true;
-  }
-  
-  // 5. Quest: Workout (+25 XP)
-  if (!currentDayXp.workout && AppState.currentWorkout && AppState.currentWorkout.trim()) {
-    totalAwardedThisRun += 25;
-    currentDayXp.workout = true;
-  }
-  
-  if (totalAwardedThisRun > 0) {
-    saveXpHistory(history);
-    addXp(totalAwardedThisRun);
-  }
-  return totalAwardedThisRun;
-}
-
-function addXp(amount) {
-  if (amount <= 0) return;
-  AppState.totalXp += amount;
-  localStorage.setItem(XP_KEY, AppState.totalXp);
-  updateGamificationUI(true);
-}
-
-function updateQuestsUI() {
-  const checkQuest = (id, condition) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (condition) {
-      el.classList.add('completed');
-      el.querySelector('.material-symbols-rounded').textContent = 'check_circle';
-    } else {
-      el.classList.remove('completed');
-      el.querySelector('.material-symbols-rounded').textContent = 'radio_button_unchecked';
+  function resetSetup() {
+    if(confirm("Möchtest du die Script-Verbindung trennen?")) {
+      localStorage.removeItem(URL_KEY);
+      AppState.scriptUrl = '';
+      document.getElementById('url-input').value = '';
+      document.getElementById('setup-banner').style.display = 'block';
+      document.getElementById('reset-url-btn').classList.remove('visible');
+      document.getElementById('save-btn').disabled = true;
     }
-  };
-  
-  checkQuest('q-kcal', document.getElementById('inp-kcal').value);
-  checkQuest('q-protein', document.getElementById('inp-protein').value);
-  checkQuest('q-sleep', AppState.sleepTouched);
-  checkQuest('q-workout', AppState.currentWorkout && AppState.currentWorkout.trim());
-}
-
-function updateGamificationUI(animate = false) {
-  const currentLevel = Math.floor(AppState.totalXp / 100) + 1;
-  const xpInCurrentLevel = AppState.totalXp % 100;
-  
-  if (AppState.lastKnownLevel === null) {
-    AppState.lastKnownLevel = currentLevel;
   }
-  
-  if (animate && currentLevel > AppState.lastKnownLevel) {
-    triggerVibration([100, 60, 100, 60, 300]);
-    const lvToast = document.getElementById('levelup-toast');
-    lvToast.querySelector('.toast-text').textContent = `LEVEL UP! Level ${currentLevel} 🎉`;
-    lvToast.classList.add('show');
-    setTimeout(() => lvToast.classList.remove('show'), 3500);
-  }
-  AppState.lastKnownLevel = currentLevel;
 
-  const titles = ["Athlete", "Elite Tracker", "Pro Performer", "Iron Mind", "Master of Health"];
-  const titleIndex = Math.min(Math.floor((currentLevel - 1) / 2), titles.length - 1);
-  document.getElementById('game-level-lbl').innerHTML = `<span class="material-symbols-rounded">military_tech</span> Level ${currentLevel} ${titles[titleIndex]}`;
-  document.getElementById('game-xp-lbl').textContent = `${xpInCurrentLevel} / 100 XP`;
-  
-  const progressBar = document.getElementById('game-progress');
-  progressBar.style.width = `${xpInCurrentLevel}%`;
-
-  const currentStreak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
-  const streakLbl = document.getElementById('game-streak-lbl');
-  if (currentStreak > 0) {
-    document.getElementById('game-streak-val').textContent = currentStreak;
-    streakLbl.style.display = 'flex';
-  } else {
-    streakLbl.style.display = 'none';
-  }
-  
-  updateQuestsUI();
-}
-
-// ══════════════════════════════════════════════
-//  SETTINGS & NAVIGATION
-// ══════════════════════════════════════════════
-function saveSetup() {
-  const url = document.getElementById('url-input').value.trim();
-  const goal = document.getElementById('goal-select').value;
-  if (!url.includes('script.google.com')) { alert('Ungültige Apps Script URL.'); return; }
-  
-  AppState.scriptUrl = url;
-  AppState.goal = goal;
-  localStorage.setItem(URL_KEY, url); localStorage.setItem(GOAL_KEY, goal);
-  
-  document.getElementById('setup-banner').style.display = 'none';
-  document.getElementById('reset-url-btn').classList.add('visible');
-  document.getElementById('save-btn').disabled = false;
-  loadDay();
-}
-
-function resetSetup() {
-  document.getElementById('url-input').value = AppState.scriptUrl;
-  document.getElementById('goal-select').value = AppState.goal;
-  document.getElementById('setup-banner').style.display = 'block';
-  document.getElementById('reset-url-btn').classList.remove('visible');
-}
-
-function changeDay(d) {
-  const next = new Date(AppState.currentDate);
-  next.setDate(next.getDate() + d);
-  if (next > new Date()) return;
-  AppState.currentDate = next;
-  refreshDateDisplay();
-  
-  clearTimeout(loadTimeout);
-  if (AppState.scriptUrl) {
+  // ══════════════════════════════════════════════
+  // BACKEND INTEGRATION (REST CALLS)
+  // ══════════════════════════════════════════════
+  function loadDay() {
+    if (!AppState.scriptUrl) return;
     const dateStr = isoDate(AppState.currentDate);
-    if (AppState.cache[dateStr]) fillForm(AppState.cache[dateStr]);
-    else clearForm();
-    loadTimeout = setTimeout(() => loadDay(), 300);
-  }
-}
-
-function refreshDateDisplay() {
-  const today = new Date();
-  const isToday = sameDay(AppState.currentDate, today);
-  document.getElementById('lbl-weekday').textContent = isToday ? 'Heute' : AppState.currentDate.toLocaleDateString('de-DE', { weekday: 'long' });
-  document.getElementById('lbl-long').textContent = AppState.currentDate.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
-  document.getElementById('lbl-today').style.display = isToday ? 'inline-block' : 'none';
-  document.getElementById('btn-next-day').style.opacity = isToday ? '0.25' : '1';
-}
-
-function sameDay(a, b) { return a.toDateString() === b.toDateString(); }
-function isoDate(d) { return d.toISOString().split('T')[0]; }
-
-function onSleepInput(v) {
-  AppState.sleepTouched = true;
-  document.getElementById('inp-sleep').style.setProperty('--pct', v + '%');
-  const el = document.getElementById('sleep-display');
-  el.textContent = v; el.classList.remove('empty');
-  updateQuestsUI();
-}
-
-// ══════════════════════════════════════════════
-//  BACKEND SYNC (GET & SET)
-// ══════════════════════════════════════════════
-async function loadDay() {
-  showStatus('tracker-status', 'loading', 'Lade Profile-Daten…');
-  const dateStr = isoDate(AppState.currentDate);
-  try {
-    const r = await fetch(`${AppState.scriptUrl}?action=get&date=${dateStr}`);
-    const d = await r.json();
-    if (d && d.date) {
-      AppState.cache[dateStr] = d;
-      fillForm(d);
-    } else { 
-      clearForm();
-    }
-    showStatus('tracker-status', '', '');
-  } catch {
-    showStatus('tracker-status', 'error', '⚠️ Verbindung träge oder offline');
-  }
-}
-
-function clearForm() {
-  ['kcal','protein','carbs','fat','weight','workout','note'].forEach(k => {
-    document.getElementById('inp-' + k).value = '';
-  });
-  AppState.currentWorkout = '';
-  AppState.currentNote = ''; AppState.sleepTouched = false;
-  const sl = document.getElementById('inp-sleep'); sl.value = 0; sl.style.setProperty('--pct', '0%');
-  const disp = document.getElementById('sleep-display');
-  disp.textContent = '—'; disp.classList.add('empty');
-  updateQuestsUI();
-}
-
-function fillForm(d) {
-  const set = (k, v) => { if (v !== undefined && v !== null) document.getElementById('inp-' + k).value = v; };
-  set('kcal', d.kcal); set('protein', d.protein); set('carbs', d.carbs); set('fat', d.fat); set('weight', d.weight); set('note', d.note);
-  AppState.currentWorkout = d.workout || '';
-  document.getElementById('inp-workout').value = AppState.currentWorkout;
-  AppState.currentNote = d.note || '';
-  
-  if (d.weight) {
-    const wVal = parseFloat(d.weight);
-    if (AppState.bestWeight === null) updateBestWeight(wVal);
-    else {
-      if (AppState.goal === 'bulk' && wVal > AppState.bestWeight) updateBestWeight(wVal);
-      if (AppState.goal === 'cut' && wVal < AppState.bestWeight) updateBestWeight(wVal);
-    }
-  }
-  if (d.sleep !== undefined && d.sleep !== '') {
-    AppState.sleepTouched = true;
-    const val = parseInt(d.sleep);
-    const sl = document.getElementById('inp-sleep'); sl.value = val; sl.style.setProperty('--pct', val + '%');
-    const disp = document.getElementById('sleep-display');
-    disp.textContent = val; disp.classList.remove('empty');
-  } else {
+    const status = document.getElementById('tracker-status');
+    
+    // Inputs zurücksetzen
+    document.getElementById('inp-kcal').value = '';
+    document.getElementById('inp-weight').value = '';
+    document.getElementById('inp-protein').value = '';
+    document.getElementById('inp-carbs').value = '';
+    document.getElementById('inp-fat').value = '';
+    document.getElementById('inp-workout').value = '';
+    document.getElementById('inp-note').value = '';
     AppState.sleepTouched = false;
-    const disp = document.getElementById('sleep-display'); disp.textContent = '—';
-    disp.classList.add('empty');
-  }
-  updateQuestsUI();
-}
+    onSleepInput(0);
 
-function updateBestWeight(v) { AppState.bestWeight = v; localStorage.setItem(WEIGHT_KEY, v); }
+    if (AppState.cache[dateStr]) {
+      applyDayData(AppState.cache[dateStr]);
+      return;
+    }
 
-async function saveDay() {
-  if (!AppState.scriptUrl) return;
-  const currentWeightVal = document.getElementById('inp-weight').value;
-  const dateStr = isoDate(AppState.currentDate);
-  
-  const currentData = {
-    action:  'set', date: dateStr,
-    kcal:    document.getElementById('inp-kcal').value || '',
-    protein: document.getElementById('inp-protein').value || '',
-    carbs:   document.getElementById('inp-carbs').value || '',
-    fat:     document.getElementById('inp-fat').value || '',
-    weight:  currentWeightVal || '',
-    workout: AppState.currentWorkout,
-    note:    AppState.currentNote,
-    sleep:   AppState.sleepTouched ? document.getElementById('inp-sleep').value : ''
-  };
-  
-  AppState.cache[dateStr] = currentData;
-  const params = new URLSearchParams(currentData);
-  const btn = document.getElementById('save-btn');
-  btn.disabled = true;
-  showStatus('save-status', 'loading', 'Sichere Daten im Sheet…');
-  
-  try {
-    const r = await fetch(`${AppState.scriptUrl}?${params.toString()}`);
-    const d = await r.json();
-    if (d.success) {
-      triggerVibration([40, 30, 40]);
-      showStatus('save-status', 'success', '✓ Datensatz erfolgreich gesichert!');
-      
-      // Berechnet und vergibt XP nur dann, wenn sie an diesem Kalendertag noch nicht geholt wurden
-      calculateAndAwardXp(dateStr);
+    clearTimeout(loadTimeout);
+    status.textContent = "Lade Tagesdaten...";
+    status.className = "status-bar show loading";
 
-      // STREAK LOGIK
-      const todayStr = isoDate(new Date());
-      if (todayStr === dateStr) {
-        const lastTracked = localStorage.getItem(LAST_DATE_KEY) || '';
-        let currentStreak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
-        
-        if (lastTracked !== todayStr) {
-          const yesterday = new Date();
-          yesterday.setDate(yesterday.getDate() - 1);
-          const yesterdayStr = isoDate(yesterday);
-          
-          if (lastTracked === yesterdayStr) {
-            currentStreak += 1;
+    loadTimeout = setTimeout(() => {
+      fetch(`${AppState.scriptUrl}?action=get&date=${dateStr}`)
+        .then(res => res.json())
+        .then(res => {
+          status.className = "status-bar";
+          if (res.success && res.data) {
+            AppState.cache[dateStr] = res.data;
+            applyDayData(res.data);
           } else {
-            currentStreak = 1;
+            updateQuestsUI();
           }
-          
-          localStorage.setItem(STREAK_KEY, currentStreak);
-          localStorage.setItem(LAST_DATE_KEY, todayStr);
-          
-          const streakBonus = currentStreak * 5;
-          addXp(streakBonus);
-          
-          setTimeout(() => {
-            const toast = document.getElementById('weight-toast');
-            toast.querySelector('.toast-text').textContent = `🔥 ${currentStreak} Tage Streak! (+${streakBonus} XP Bonus)`;
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2800);
-          }, 2200);
-        }
-      }
-
-      if (currentWeightVal) {
-        const newWeight = parseFloat(currentWeightVal);
-        let isRecord = false;
-        let recordMsg = '';
-        if (AppState.goal === 'bulk' && newWeight > AppState.bestWeight) { isRecord = true; recordMsg = 'Neues Höchstgewicht! 🔥'; }
-        else if (AppState.goal === 'cut' && newWeight < AppState.bestWeight) { isRecord = true; recordMsg = 'Neues Tiefstgewicht! 📉'; }
-        
-        if (isRecord) {
-          const toast = document.getElementById('weight-toast');
-          toast.querySelector('.toast-text').textContent = recordMsg;
-          toast.classList.add('show');
-          setTimeout(() => toast.classList.remove('show'), 2500);
-          updateBestWeight(newWeight);
-        }
-      }
-      setTimeout(() => showStatus('save-status', '', ''), 2000);
-    } else { throw new Error(); }
-  } catch {
-    showStatus('save-status', 'error', '⚠️ Cloud-Speicherung fehlgeschlagen');
-  } finally { btn.disabled = false; }
-}
-
-// ══════════════════════════════════════════════
-//  TAB-SWITCH & CHARTS
-// ══════════════════════════════════════════════
-function switchTab(tab) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  
-  document.getElementById('page-' + tab).classList.add('active');
-  document.querySelector(`.tab-btn[data-tab="${tab}"]`).classList.add('active');
-  
-  if (tab === 'analyse' && AppState.scriptUrl) loadAnalytics();
-  if (tab === 'kalender' && AppState.scriptUrl) initCalendar();
-}
-
-const CHART_DEFAULTS = {
-  responsive: true, maintainAspectRatio: true, spanGaps: true,
-  plugins: { legend: { display: false } },
-  scales: {
-    x: { ticks: { color: '#5a5a72', font: { size: 10, family: 'Outfit' }, maxTicksLimit: 7 }, grid: { color: 'rgba(255,255,255,0.03)' } },
-    y: { ticks: { color: '#5a5a72', font: { size: 10, family: 'Outfit' } }, grid: { color: 'rgba(255,255,255,0.05)' } }
+        })
+        .catch(() => {
+          status.className = "status-bar show error";
+          status.textContent = "Offline Modus / Fehler beim Laden";
+          updateQuestsUI();
+        });
+    }, 250);
   }
-};
 
-function initCharts() {
-  const mkDataset = (color, label) => ({ label, data: [], borderColor: color, backgroundColor: color + '10', fill: true, tension: 0.4, pointRadius: 2, borderWidth: 2 });
-  AppState.charts.weight = new Chart(document.getElementById('chart-weight'), { type: 'line', data: { labels: [], datasets: [mkDataset('#60a5fa', 'Gewicht')] }, options: CHART_DEFAULTS });
-  AppState.charts.kcal = new Chart(document.getElementById('chart-kcal'), { type: 'line', data: { labels: [], datasets: [mkDataset('#f5a623', 'kcal')] }, options: CHART_DEFAULTS });
-  AppState.charts.sleep = new Chart(document.getElementById('chart-sleep'), { type: 'line', data: { labels: [], datasets: [mkDataset('#a78bfa', 'Schlaf')] }, options: { ...CHART_DEFAULTS, scales: { ...CHART_DEFAULTS.scales, y: { min: 0, max: 100 } } } });
-  AppState.charts.macros = new Chart(document.getElementById('chart-macros'), {
-    type: 'line', data: { labels: [], datasets: [ { ...mkDataset('#4ade80', 'Protein'), fill: false }, { ...mkDataset('#a78bfa', 'Carbs'), fill: false }, { ...mkDataset('#fb923c', 'Fett'), fill: false } ] },
-    options: { ...CHART_DEFAULTS, plugins: { legend: { display: true, labels: { color: '#e8e8f0', font: { size: 10 } } } } }
-  });
-}
+  function applyDayData(d) {
+    if (d.kcal) document.getElementById('inp-kcal').value = d.kcal;
+    if (d.weight) document.getElementById('inp-weight').value = d.weight;
+    if (d.protein) document.getElementById('inp-protein').value = d.protein;
+    if (d.carbs) document.getElementById('inp-carbs').value = d.carbs;
+    if (d.fat) document.getElementById('inp-fat').value = d.fat;
+    if (d.workout) { document.getElementById('inp-workout').value = d.workout; AppState.currentWorkout = d.workout; }
+    if (d.sleep) { AppState.sleepTouched = true; document.getElementById('inp-sleep').value = d.sleep; onSleepInput(d.sleep); }
+    if (d.note) { document.getElementById('inp-note').value = d.note; AppState.currentNote = d.note; }
+    updateQuestsUI();
+  }
 
-function setRange(days, el) {
-  AppState.currentRange = days;
-  document.querySelectorAll('.range-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  loadAnalytics();
-}
+  function saveDay() {
+    if (!AppState.scriptUrl) return;
+    const dateStr = isoDate(AppState.currentDate);
+    const status = document.getElementById('save-status');
+    status.textContent = "Speichere Daten...";
+    status.className = "status-bar show loading";
+    document.getElementById('save-btn').disabled = true;
 
-async function loadAnalytics() {
-  showStatus('analyse-status', 'loading', 'Analysiere Datensätze…');
-  try {
-    const r = await fetch(`${AppState.scriptUrl}?action=range&days=${AppState.currentRange}`);
-    const rows = await r.json();
-    if (Array.isArray(rows)) {
-      const formatLabel = d => { const [,m,day] = d.split('-'); return `${day}.${m}`; };
-      const labels = rows.map(r => formatLabel(r.date));
-      const numOrNull = v => (v === '' || v === null) ? null : Number(v);
+    const payload = {
+      action: "save",
+      date: dateStr,
+      kcal: document.getElementById('inp-kcal').value,
+      weight: document.getElementById('inp-weight').value,
+      protein: document.getElementById('inp-protein').value,
+      carbs: document.getElementById('inp-carbs').value,
+      fat: document.getElementById('inp-fat').value,
+      workout: AppState.currentWorkout,
+      sleep: AppState.sleepTouched ? document.getElementById('inp-sleep').value : '',
+      note: AppState.currentNote
+    };
+
+    fetch(AppState.scriptUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      status.className = "status-bar show success";
+      status.textContent = "Erfolgreich synchronisiert!";
+      AppState.cache[dateStr] = payload;
       
-      const updateSingle = (chart, key) => {
-        chart.data.labels = labels;
-        chart.data.datasets[0].data = rows.map(r => numOrNull(r[key]));
-        chart.update();
-      };
-      updateSingle(AppState.charts.weight, 'weight');
-      updateSingle(AppState.charts.kcal, 'kcal');
-      updateSingle(AppState.charts.sleep, 'sleep');
-      
-      AppState.charts.macros.data.labels = labels;
-      AppState.charts.macros.data.datasets[0].data = rows.map(r => numOrNull(r.protein));
-      AppState.charts.macros.data.datasets[1].data = rows.map(r => numOrNull(r.carbs));
-      AppState.charts.macros.data.datasets[2].data = rows.map(r => numOrNull(r.fat));
-      AppState.charts.macros.update();
+      const weightVal = parseFloat(payload.weight);
+      if (weightVal) {
+        if (AppState.goal === 'cut' && (AppState.bestWeight === null || weightVal < AppState.bestWeight)) {
+          AppState.bestWeight = weightVal; localStorage.setItem(WEIGHT_KEY, weightVal); showToast('weight-toast'); triggerVibration([40,40,40]);
+        } else if (AppState.goal === 'bulk' && (AppState.bestWeight === null || weightVal > AppState.bestWeight)) {
+          AppState.bestWeight = weightVal; localStorage.setItem(WEIGHT_KEY, weightVal); showToast('weight-toast'); triggerVibration([40,40,40]);
+        }
+      }
+
+      calculateAndAwardXp(dateStr);
+      checkStreak();
+      triggerVibration(25);
+
+      setTimeout(() => {
+        status.className = "status-bar";
+        document.getElementById('save-btn').disabled = false;
+      }, 2000);
+    })
+    .catch(() => {
+      status.className = "status-bar show error";
+      status.textContent = "Fehler beim Speichern.";
+      document.getElementById('save-btn').disabled = false;
+    });
+  }
+
+  // ══════════════════════════════════════════════
+  // ANALYTICS GRAPHICS (CHART.JS)
+  // ══════════════════════════════════════════════
+  function initCharts() {
+    const cOptions = (gridColor) => ({
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#5a5a72', font: { family: 'Outfit', size: 10 } } },
+        y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#5a5a72', font: { family: 'Space Mono', size: 10 } } }
+      }
+    });
+
+    AppState.charts.weight = new Chart(document.getElementById('chart-weight'), { type: 'line', data: { labels: [], datasets: [{ borderColor: '#60a5fa', tension: 0.3, pointRadius: 2, data: [] }] }, options: cOptions() });
+    AppState.charts.kcal = new Chart(document.getElementById('chart-kcal'), { type: 'bar', data: { labels: [], datasets: [{ backgroundColor: '#f5a623', borderRadius: 4, data: [] }] }, options: cOptions() });
+    AppState.charts.macros = new Chart(document.getElementById('chart-macros'), { type: 'line', data: { labels: [], datasets: [{ borderColor: '#4ade80', label: 'P', data: [] }, { borderColor: '#a78bfa', label: 'C', data: [] }, { borderColor: '#fb923c', label: 'F', data: [] }] }, options: { ...cOptions(), plugins: { legend: { display: true, labels: { color: '#5a5a72', boxWidth: 10, font: { family: 'Outfit' } } } } } });
+    AppState.charts.sleep = new Chart(document.getElementById('chart-sleep'), { type: 'line', data: { labels: [], datasets: [{ borderColor: '#a78bfa', tension: 0.2, fill: true, backgroundColor: 'rgba(167,139,250,0.04)', data: [] }] }, options: cOptions() });
+  }
+
+  function setRange(days, element) {
+    document.querySelectorAll('.range-pill').forEach(p => p.classList.remove('active'));
+    element.classList.add('active');
+    AppState.currentRange = days;
+    fetchAnalytics();
+  }
+
+  function fetchAnalytics() {
+    if (!AppState.scriptUrl) return;
+    const status = document.getElementById('analyse-status');
+    status.textContent = "Analysiere Datensätze...";
+    status.className = "status-bar show loading";
+
+    fetch(`${AppState.scriptUrl}?action=trend&days=${AppState.currentRange}`)
+      .then(res => res.json())
+      .then(res => {
+        status.className = "status-bar";
+        if (res.success && res.data) updateChartsData(res.data);
+      })
+      .catch(() => { status.className = "status-bar show error"; status.textContent = "Trend-Fehler"; });
+  }
+
+  function updateChartsData(data) {
+    const labels = data.map(i => { const p = i.date.split('-'); return p[2]+'.'+p[1]; });
+    
+    AppState.charts.weight.data.labels = labels;
+    AppState.charts.weight.data.datasets[0].data = data.map(i => i.weight || null);
+    AppState.charts.weight.update();
+
+    AppState.charts.kcal.data.labels = labels;
+    AppState.charts.kcal.data.datasets[0].data = data.map(i => i.kcal || 0);
+    AppState.charts.kcal.update();
+
+    AppState.charts.macros.data.labels = labels;
+    AppState.charts.macros.data.datasets[0].data = data.map(i => i.protein || null);
+    AppState.charts.macros.data.datasets[1].data = data.map(i => i.carbs || null);
+    AppState.charts.macros.data.datasets[2].data = data.map(i => i.fat || null);
+    AppState.charts.macros.update();
+
+    AppState.charts.sleep.data.labels = labels;
+    AppState.charts.sleep.data.datasets[0].data = data.map(i => i.sleep || null);
+    AppState.charts.sleep.update();
+  }
+
+  // ══════════════════════════════════════════════
+  // HIGH-PERFORMANCE KALENDER LOGIK
+  // ══════════════════════════════════════════════
+  function calChangeMonth(offset) {
+    AppState.calViewDate.setMonth(AppState.calViewDate.getMonth() + offset);
+    renderCalendar();
+  }
+
+  function renderCalendar() {
+    const view = AppState.calViewDate;
+    document.getElementById('cal-month-label').textContent = view.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+    document.getElementById('cal-month-sub').textContent = 'Wähle einen Tag für Details';
+
+    const firstDayIndex = (new Date(view.getFullYear(), view.getMonth(), 1).getDay() + 6) % 7;
+    const totalDays = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    const prevTotalDays = new Date(view.getFullYear(), view.getMonth(), 0).getDate();
+    
+    const grid = document.getElementById('cal-grid');
+    grid.innerHTML = '';
+
+    const today = new Date();
+    const status = document.getElementById('cal-status');
+
+    // Fetch Monats-Metadaten
+    if (AppState.scriptUrl && !AppState.calDataCache[view.getFullYear() + '-' + view.getMonth()]) {
+      status.textContent = "Synchronisiere Kalender..."; status.className = "status-bar show loading";
+      fetch(`${AppState.scriptUrl}?action=month&year=${view.getFullYear()}&month=${view.getMonth()+1}`)
+        .then(res => res.json())
+        .then(res => {
+          status.className = "status-bar";
+          if (res.success && res.data) {
+            AppState.calDataCache[view.getFullYear() + '-' + view.getMonth()] = res.data;
+            renderCalendarCells(firstDayIndex, totalDays, prevTotalDays, today);
+          }
+        }).catch(() => status.className = "status-bar");
+    } else {
+      renderCalendarCells(firstDayIndex, totalDays, prevTotalDays, today);
     }
-    showStatus('analyse-status', '', '');
-  } catch { showStatus('analyse-status', 'error', '⚠️ Fehler beim Chart-Render'); }
-}
+  }
 
-function showStatus(id, type, text) {
-  const el = document.getElementById(id);
-  el.className = 'status-bar' + (type ? ' show ' + type : '');
-  el.innerHTML = type === 'loading' ? `<span class="spin"></span>${text}` : text;
-}
+  function calDayData(dateStr) {
+    const cKey = AppState.calViewDate.getFullYear() + '-' + AppState.calViewDate.getMonth();
+    return AppState.calDataCache[cKey] ? AppState.calDataCache[cKey][dateStr] : null;
+  }
 
-// ══════════════════════════════════════════════
-//  KALENDER LOGIK
-// ══════════════════════════════════════════════
-async function initCalendar() {
-  AppState.calViewDate = new Date(AppState.currentDate);
-  AppState.calSelectedDate = new Date(AppState.currentDate);
-  await loadCalendarMonth(AppState.calViewDate);
-  renderCalendar();
-  renderCalSummary(AppState.calSelectedDate);
-}
+  function renderCalendarCells(firstDayIndex, totalDays, prevTotalDays, today) {
+    const grid = document.getElementById('cal-grid');
+    const view = AppState.calViewDate;
 
-async function loadCalendarMonth(d) {
-  const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
-  if (AppState.calDataCache[key]) return;
-  showStatus('cal-status', 'loading', 'Lade Kalenderblatt…');
-  try {
-    const r = await fetch(`${AppState.scriptUrl}?action=range&days=90`);
-    const rows = await r.json();
-    if (Array.isArray(rows)) {
-      rows.forEach(row => {
-        if (!row.date) return;
-        const mk = row.date.slice(0,7);
-        if (!AppState.calDataCache[mk]) AppState.calDataCache[mk] = {};
-        AppState.calDataCache[mk][row.date] = row;
+    // Vorheriger Monat
+    for (let i = firstDayIndex; i > 0; i--) {
+      const dNum = prevTotalDays - i + 1;
+      const cell = document.createElement('div'); cell.className = 'cal-cell other-month';
+      cell.innerHTML = `<div class="cal-day-num">${dNum}</div>`;
+      grid.appendChild(cell);
+    }
+
+    // Aktueller Monat
+    for (let i = 1; i <= totalDays; i++) {
+      const cell = document.createElement('div'); cell.className = 'cal-cell';
+      const cellDate = new Date(view.getFullYear(), view.getMonth(), i);
+      const dateStr = isoDate(cellDate);
+
+      if (cellDate > today) cell.classList.add('future');
+      if (sameDay(cellDate, today)) cell.classList.add('is-today');
+      if (sameDay(cellDate, AppState.calSelectedDate)) cell.classList.add('selected');
+
+      cell.style.background = 'rgba(255,255,255,0.02)';
+      
+      const dayData = calDayData(dateStr);
+      if (dayData && (dayData.kcal || dayData.workout)) {
+        cell.style.background = 'rgba(74,222,128,0.06)';
+      }
+
+      cell.innerHTML = `<div class="cal-day-num">${i}</div>`;
+      if (dayData && dayData.workout) {
+        cell.innerHTML += `<div class="cal-dot"></div>`;
+      }
+
+      cell.addEventListener('click', (e) => {
+        triggerVibration(10);
+        AppState.calSelectedDate = cellDate;
+        renderCalendarCells(firstDayIndex, totalDays, prevTotalDays, today);
       });
+
+      grid.appendChild(cell);
     }
-    if (!AppState.calDataCache[key]) AppState.calDataCache[key] = {};
-    showStatus('cal-status', '', '');
-  } catch { showStatus('cal-status', 'error', '⚠️ Abfrage fehlgeschlagen'); }
-}
+    renderCalSummary(AppState.calSelectedDate);
+  }
 
-function calDayData(dateStr) {
-  return (AppState.calDataCache[dateStr.slice(0,7)] || {})[dateStr] || null;
-}
+  function goToSelectedDay() {
+    AppState.currentDate = new Date(AppState.calSelectedDate);
+    refreshDateDisplay();
+    switchTab('tracker');
+    loadDay();
+  }
 
-function hasData(dateStr) {
-  const d = calDayData(dateStr);
-  return d ? !!(d.kcal || d.weight || d.protein || d.sleep || d.workout || d.note) : false;
-}
-
-function renderCalendar() {
-  const today = new Date();
-  const yr = AppState.calViewDate.getFullYear(), mo = AppState.calViewDate.getMonth();
-  document.getElementById('cal-month-label').textContent = AppState.calViewDate.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
-  document.getElementById('cal-month-sub').textContent = `${new Date(yr, mo+1, 0).getDate()} Tage`;
-  document.getElementById('cal-next-month').disabled = (yr * 12 + mo) >= (today.getFullYear() * 12 + today.getMonth());
-  const firstDow = (new Date(yr, mo, 1).getDay() + 6) % 7;
-  const daysInMonth = new Date(yr, mo+1, 0).getDate(), prevDays = new Date(yr, mo, 0).getDate();
-  const grid = document.getElementById('cal-grid'); grid.innerHTML = '';
-  let cells = [];
-  for (let i = firstDow - 1; i >= 0; i--) cells.push({ day: prevDays - i, month: mo - 1, year: yr, type: 'prev' });
-  for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, month: mo, year: yr, type: 'current' });
-  const rem = (7 - (cells.length % 7)) % 7;
-  for (let d = 1; d <= rem; d++) cells.push({ day: d, month: mo + 1, year: yr, type: 'next' });
-  cells.forEach(c => {
-    const cellDate = new Date(c.year, c.month, c.day), dateStr = isoDate(cellDate);
-    const isToday = sameDay(cellDate, today), isFuture = cellDate > today, isSelected = sameDay(cellDate, AppState.calSelectedDate);
+  function renderCalSummary(date) {
+    const dateStr = isoDate(date);
+    document.getElementById('cal-summary-label').textContent = sameDay(date, new Date()) ? 'Heute' : date.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
+    const d = calDayData(dateStr);
+    const setM = (id, val, u = '') => {
+      const el = document.getElementById('csm-' + id);
+      if (val) { el.textContent = val + u; el.classList.remove('empty'); }
+      else { el.textContent = '—'; el.classList.add('empty'); }
+    };
+    setM('kcal', d?.kcal); setM('weight', d?.weight, ' kg'); setM('sleep', d?.sleep); setM('protein', d?.protein, 'g'); setM('carbs', d?.carbs, 'g'); setM('fat', d?.fat, 'g');
     
-    const el = document.createElement('div');
-    el.className = 'cal-cell';
-    if (c.type !== 'current') el.classList.add('other-month');
-    if (isFuture) el.classList.add('future');
-    if (isToday) el.classList.add('is-today');
-    if (isSelected) el.classList.add('selected');
+    const wb = document.getElementById('csm-workout');
+    if (d?.workout) { wb.innerHTML = `<span class="material-symbols-rounded" style="font-size:14px">exercise</span> ${d.workout}`; wb.style.display = 'flex'; }
+    else { wb.style.display = 'none'; }
     
-    el.innerHTML = `<span class="cal-day-num">${c.day}</span><div style="min-height:5px">${(!isFuture && hasData(dateStr)) ? '<div class="cal-dot"></div>' : ''}</div>`;
-    if (!isFuture) el.addEventListener('click', (e) => { triggerVibration(10); selectCalDay(cellDate, e); });
-    grid.appendChild(el);
-  });
-}
-
-async function calChangeMonth(delta) {
-  AppState.calViewDate = new Date(AppState.calViewDate.getFullYear(), AppState.calViewDate.getMonth() + delta, 1);
-  await loadCalendarMonth(AppState.calViewDate);
-  renderCalendar();
-}
-
-function selectCalDay(date, e) {
-  AppState.calSelectedDate = new Date(date);
-  document.querySelectorAll('.cal-cell').forEach(el => el.classList.remove('selected'));
-  if (e && e.currentTarget) e.currentTarget.classList.add('selected');
-  else renderCalendar();
-  renderCalSummary(date);
-}
-
-function renderCalSummary(date) {
-  const dateStr = isoDate(date);
-  document.getElementById('cal-summary-label').textContent = sameDay(date, new Date()) ? 'Heute' : date.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
-  const d = calDayData(dateStr);
-  const setM = (id, val, u = '') => {
-    const el = document.getElementById('csm-' + id);
-    if (val) { el.textContent = val + u; el.classList.remove('empty'); }
-    else { el.textContent = '—'; el.classList.add('empty'); }
-  };
-  setM('kcal', d?.kcal); setM('weight', d?.weight, ' kg'); setM('sleep', d?.sleep); setM('protein', d?.protein, 'g'); setM('carbs', d?.carbs, 'g'); setM('fat', d?.fat, 'g');
-  const wb = document.getElementById('csm-workout');
-  if (d?.workout) { wb.innerHTML = `<span class="material-symbols-rounded" style="font-size:14px">exercise</span> ${d.workout}`; wb.style.display = 'flex'; }
-  else { wb.style.display = 'none'; }
-  
-  const nb = document.getElementById('csm-note');
-  if (d?.note) { nb.textContent = `"${d.note}"`; nb.style.display = 'block'; }
-  else { nb.style.display = 'none'; }
-}
-
-function goToSelectedDay() {
-  AppState.currentDate = new Date(AppState.calSelectedDate);
-  refreshDateDisplay();
-  const dateStr = isoDate(AppState.currentDate);
-  if (AppState.cache[dateStr]) fillForm(AppState.cache[dateStr]);
-  else loadDay();
-  switchTab('tracker');
-}
+    const nb = document.getElementById('csm-note');
+    if (d?.note) { nb.textContent = `"${d.note}"`; nb.style.display = 'block'; }
+    else { nb.style.display = 'none'; }
+  }
 </script>
 </body>
 </html>
+
