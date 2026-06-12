@@ -102,22 +102,19 @@
     .date-nav::after {
       content: '';
       position: absolute;
-      bottom: 0; left: -16px;
-      right: -16px;
+      bottom: 0; left: -16px; right: -16px;
       height: 1px;
       background: var(--border);
     }
     .nav-arrow {
-      width: 42px;
-      height: 42px;
+      width: 42px; height: 42px;
       border: 1px solid var(--border);
       border-radius: 13px;
       background: var(--surface);
       color: var(--text);
       font-size: 22px;
       cursor: pointer;
-      display: flex; align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       transition: background 0.15s, opacity 0.2s;
       flex-shrink: 0;
     }
@@ -129,8 +126,7 @@
       display: inline-block;
       background: var(--accent);
       color: #000;
-      font-size: 9px;
-      font-weight: 700;
+      font-size: 9px; font-weight: 700;
       padding: 2px 8px;
       border-radius: 99px;
       letter-spacing: 0.08em;
@@ -159,14 +155,12 @@
       font-weight: 700;
       font-size: 15px;
       color: var(--accent);
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       gap: 6px;
     }
     .game-xp-text {
       font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-dim);
+      font-size: 11px; color: var(--text-dim);
     }
     .progress-track {
       width: 100%;
@@ -217,14 +211,20 @@
       margin-bottom: 4px;
       transition: all 0.2s ease;
     }
-    .quest-item .material-symbols-rounded { font-size: 14px; }
-    .quest-item.completed { color: var(--green); opacity: 0.6; }
-    .quest-item.completed .material-symbols-rounded { font-variation-settings: 'FILL' 1; }
+    .quest-item .material-symbols-rounded {
+      font-size: 14px;
+    }
+    .quest-item.completed {
+      color: var(--green);
+      opacity: 0.6;
+    }
+    .quest-item.completed .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1;
+    }
 
     /* ── SECTION LABEL ── */
     .section-label {
-      font-size: 10px;
-      font-weight: 700;
+      font-size: 10px; font-weight: 700;
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -237,14 +237,12 @@
 
     /* ── METRIC CARDS ── */
     .metrics-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-bottom: 10px;
     }
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 14px 14px 12px;
       position: relative;
@@ -253,8 +251,7 @@
     }
     .card:active { transform: scale(0.98); }
     .card::before {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       top: 0; left: 14px; right: 14px;
       height: 2px;
       border-radius: 0 0 2px 2px;
@@ -264,29 +261,25 @@
     .card-icon {
       font-size: 20px;
       position: absolute;
-      top: 12px; right: 13px;
-      opacity: 0.25;
+      top: 12px; right: 13px; opacity: 0.25;
       color: var(--c, var(--text));
     }
     .card-label {
       font-size: 10px;
-      font-weight: 600;
-      color: var(--text-dim);
+      font-weight: 600; color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 10px;
     }
     .metric-input {
-      width: 100%;
-      background: transparent;
+      width: 100%; background: transparent;
       border: none;
       border-bottom: 1.5px solid transparent;
       color: var(--text);
       font-family: var(--font-mono);
       font-size: 26px;
       font-weight: 700;
-      outline: none;
-      padding: 2px 0;
+      outline: none; padding: 2px 0;
       transition: border-color 0.15s;
     }
     .metric-input:focus { border-bottom-color: var(--c, var(--accent)); }
@@ -296,8 +289,7 @@
 
     /* ── NOTE TEXTAREA ── */
     .note-textarea {
-      width: 100%;
-      min-height: 80px;
+      width: 100%; min-height: 80px;
       background: transparent;
       border: none;
       resize: none;
@@ -312,8 +304,7 @@
 
     /* ── SLEEP SLIDER ── */
     .sleep-val {
-      font-family: var(--font-mono);
-      font-size: 28px;
+      font-family: var(--font-mono); font-size: 28px;
       font-weight: 700;
       color: var(--purple);
       margin-bottom: 8px;
@@ -325,8 +316,7 @@
       width: 100%;
       -webkit-appearance: none;
       appearance: none;
-      height: 5px;
-      border-radius: 3px;
+      height: 5px; border-radius: 3px;
       outline: none;
       cursor: pointer;
       background: linear-gradient(
@@ -340,15 +330,13 @@
     input[type=range].sleep-slider::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 24px; height: 24px;
-      border-radius: 50%;
-      background: var(--purple);
+      border-radius: 50%; background: var(--purple);
       box-shadow: 0 0 0 4px var(--purple-dim), 0 2px 6px rgba(0,0,0,0.4);
     }
 
     /* ── BUTTONS & STATUS ── */
     .save-btn {
-      width: 100%;
-      background: var(--accent);
+      width: 100%; background: var(--accent);
       color: #000;
       border: none;
       border-radius: var(--radius);
@@ -357,16 +345,14 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      letter-spacing: 0.02em;
-      margin-top: 6px;
+      letter-spacing: 0.02em; margin-top: 6px;
       transition: opacity 0.2s, transform 0.12s;
     }
     .save-btn:active { transform: scale(0.98); }
     .save-btn:disabled { opacity: 0.35; }
 
     .status-bar {
-      border-radius: 12px;
-      padding: 10px 14px;
+      border-radius: 12px; padding: 10px 14px;
       font-size: 13px;
       font-weight: 500;
       margin-top: 10px;
@@ -381,20 +367,17 @@
 
     /* ── POPUPS / TOASTS ── */
     .toast-popup {
-      position: fixed;
-      top: calc(env(safe-area-inset-top, 0px) + 20px);
+      position: fixed; top: calc(env(safe-area-inset-top, 0px) + 20px);
       left: 50%;
       transform: translateX(-50%) translateY(-20px) scale(0.95);
       background: var(--blue);
       color: #000;
       padding: 12px 24px;
-      border-radius: 99px;
-      font-weight: 700;
+      border-radius: 99px; font-weight: 700;
       font-size: 14px;
       box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
       opacity: 0;
-      pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       z-index: 9999;
       display: flex; align-items: center; gap: 8px;
     }
@@ -408,25 +391,21 @@
 
     /* ── BOTTOM NAV ── */
     .bottom-nav {
-      position: fixed;
-      bottom: 0; left: 50%;
+      position: fixed; bottom: 0; left: 50%;
       transform: translateX(-50%);
       width: 100%; max-width: 430px;
       background: rgba(17,17,32,0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--border);
-      display: flex;
+      border-top: 1px solid var(--border); display: flex;
       height: var(--nav-h);
       padding-bottom: env(safe-area-inset-bottom, 0);
       z-index: 100;
     }
     .tab-btn {
-      flex: 1;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 4px; border: none; background: transparent; color: var(--text-dim);
-      font-family: var(--font-ui); font-size: 11px;
-      font-weight: 600; cursor: pointer;
+      font-family: var(--font-ui); font-size: 11px; font-weight: 600; cursor: pointer;
       padding-top: 6px; transition: color 0.2s;
     }
     .tab-btn.active { color: var(--accent); }
@@ -529,7 +508,7 @@
         <div class="progress-bar" id="game-progress"></div>
       </div>
       <div class="game-xp-text" id="game-xp-lbl" style="margin-top: 2px;">0 / 100 XP</div>
-   
+      
       <div class="daily-quests">
         <div class="quest-title">Heutige Quests:</div>
         <div class="quest-item" id="q-kcal"><span class="material-symbols-rounded">radio_button_unchecked</span> Kalorien erfassen (+10 XP)</div>
@@ -684,764 +663,637 @@
     <button class="tab-btn" data-tab="kalender"><span class="material-symbols-rounded tab-icon">calendar_month</span>Kalender</button>
     <button class="tab-btn" data-tab="analyse"><span class="material-symbols-rounded tab-icon">monitoring</span>Analyse</button>
   </nav>
+
 </div>
 
 <script>
-  // ══════════════════════════════════════════════
-  // STATE MANAGEMENT & GAMIFICATION
-  // ══════════════════════════════════════════════
-  const URL_KEY = 'healthlog_url';
-  const GOAL_KEY = 'healthlog_goal';
-  const WEIGHT_KEY = 'healthlog_best_weight';
-  const XP_KEY = 'healthlog_total_xp';
-  const STREAK_KEY = 'healthlog_streak';
-  const LAST_DATE_KEY = 'healthlog_last_date';
-  const TRACKED_HISTORY_KEY = 'healthlog_xp_history';
-
-  const AppState = {
-    scriptUrl: localStorage.getItem(URL_KEY) || '',
-    goal: localStorage.getItem(GOAL_KEY) || 'cut',
-    bestWeight: localStorage.getItem(WEIGHT_KEY) ? parseFloat(localStorage.getItem(WEIGHT_KEY)) : null,
-    totalXp: localStorage.getItem(XP_KEY) ? parseInt(localStorage.getItem(XP_KEY)) : 0,
-    lastKnownLevel: null,
-    currentDate: new Date(),
-    currentWorkout: '',
-    currentNote: '',
-    sleepTouched: false,
-    cache: {},
-    calDataCache: {},
-    charts: {},
-    currentRange: 7,
-    calViewDate: new Date(),
-    calSelectedDate: new Date()
-  };
-
-  let loadTimeout;
-
-  // ══════════════════════════════════════════════
-  // INITIALISIERUNG
-  // ══════════════════════════════════════════════
-  document.addEventListener('DOMContentLoaded', () => {
-    initEventListeners();
-    refreshDateDisplay();
-    initCharts();
-    updateGamificationUI(false);
-    
-    if (AppState.scriptUrl) {
-      document.getElementById('setup-banner').style.display = 'none';
-      document.getElementById('reset-url-btn').classList.add('visible');
-      loadDay();
-    } else {
-      document.getElementById('save-btn').disabled = true;
-    }
-  });
-
-  function triggerVibration(pattern = 15) {
-    if ('vibrate' in navigator) {
-      navigator.vibrate(pattern);
-    }
-  }
-
-  function initEventListeners() {
-    document.getElementById('btn-prev-day').addEventListener('click', () => { triggerVibration(10); changeDay(-1); });
-    document.getElementById('btn-next-day').addEventListener('click', () => { triggerVibration(10); changeDay(1); });
-    document.getElementById('save-setup-btn').addEventListener('click', saveSetup);
-    document.getElementById('reset-url-btn').addEventListener('click', resetSetup);
-    
-    document.querySelectorAll('.metric-input[type="number"]').forEach(input => {
-      input.addEventListener('input', (e) => {
-        if (parseFloat(e.target.value) < 0) e.target.value = 0;
-      });
-    });
-
-    document.getElementById('inp-kcal').addEventListener('input', updateQuestsUI);
-    document.getElementById('inp-protein').addEventListener('input', updateQuestsUI);
-    document.getElementById('inp-workout').addEventListener('input', (e) => {
-      AppState.currentWorkout = e.target.value;
-      updateQuestsUI();
-    });
-    document.getElementById('inp-note').addEventListener('input', (e) => AppState.currentNote = e.target.value);
-    document.getElementById('inp-sleep').addEventListener('input', (e) => onSleepInput(e.target.value));
-    
-    document.getElementById('save-btn').addEventListener('click', saveDay);
-    
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        triggerVibration(12);
-        switchTab(btn.getAttribute('data-tab'));
-      });
-    });
-
-    document.querySelectorAll('.range-pill').forEach(pill => {
-      pill.addEventListener('click', (e) => {
-        triggerVibration(10);
-        setRange(parseInt(pill.getAttribute('data-days')), pill);
-      });
-    });
-
-    document.getElementById('cal-prev-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(-1); });
-    document.getElementById('cal-next-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(1); });
-    document.getElementById('btn-go-to-day').addEventListener('click', () => { triggerVibration(15); goToSelectedDay(); });
-    
-    // Klick auf Card fokussiert das Input-Feld
-    document.querySelectorAll('.card-clickable').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if(e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-          const id = card.getAttribute('data-target');
-          if(id) document.getElementById(id).focus();
-        }
-      });
-    });
-  }
-
-  // ══════════════════════════════════════════════
-  // GAMIFICATION LOGIK
-  // ══════════════════════════════════════════════
-  function getXpHistory() {
-    try {
-      return JSON.parse(localStorage.getItem(TRACKED_HISTORY_KEY)) || {};
-    } catch(e) {
-      return {};
-    }
-  }
-
-  function saveXpHistory(history) {
-    localStorage.setItem(TRACKED_HISTORY_KEY, JSON.stringify(history));
-  }
-
-  function calculateAndAwardXp(dateStr) {
-    const history = getXpHistory();
-    if (!history[dateStr]) {
-      history[dateStr] = { base: false, kcal: false, protein: false, sleep: false, workout: false };
-    }
-    
-    const currentDayXp = history[dateStr];
-    let totalAwardedThisRun = 0;
-
-    if (!currentDayXp.base) {
-      totalAwardedThisRun += 30;
-      currentDayXp.base = true;
-    }
-    if (!currentDayXp.kcal && document.getElementById('inp-kcal').value) {
-      totalAwardedThisRun += 10;
-      currentDayXp.kcal = true;
-    }
-    if (!currentDayXp.protein && document.getElementById('inp-protein').value) {
-      totalAwardedThisRun += 10;
-      currentDayXp.protein = true;
-    }
-    if (!currentDayXp.sleep && AppState.sleepTouched) {
-      totalAwardedThisRun += 10;
-      currentDayXp.sleep = true;
-    }
-    if (!currentDayXp.workout && document.getElementById('inp-workout').value.trim()) {
-      totalAwardedThisRun += 25;
-      currentDayXp.workout = true;
-    }
-
-    if (totalAwardedThisRun > 0) {
-      AppState.totalXp += totalAwardedThisRun;
-      localStorage.setItem(XP_KEY, AppState.totalXp);
-      saveXpHistory(history);
-      updateGamificationUI(true);
-    }
-  }
-
-  function updateGamificationUI(triggerToast = false) {
-    const currentLevel = Math.floor(AppState.totalXp / 100) + 1;
-    const xpInCurrentLevel = AppState.totalXp % 100;
-    
-    let title = "Athlete";
-    if (currentLevel >= 3)  title = "Elite Performer";
-    if (currentLevel >= 7)  title = "Champion";
-    if (currentLevel >= 12) title = "Unstoppable";
-    if (currentLevel >= 20) title = "Greek God";
-
-    document.getElementById('game-level-lbl').innerHTML = `<span class="material-symbols-rounded">military_tech</span> Level ${currentLevel} ${title}`;
-    document.getElementById('game-xp-lbl').textContent = `${xpInCurrentLevel} / 100 XP`;
-    document.getElementById('game-progress').style.width = `${xpInCurrentLevel}%`;
-
-    if (triggerToast && AppState.lastKnownLevel !== null && currentLevel > AppState.lastKnownLevel) {
-      showPopupToast('levelup-toast');
-    }
-    AppState.lastKnownLevel = currentLevel;
-    updateStreakLogik();
-    updateQuestsUI();
-  }
-
-  function updateStreakLogik() {
-    const todayStr = isoDate(new Date());
-    const lastDateTracked = localStorage.getItem(LAST_DATE_KEY);
-    let streak = parseInt(localStorage.getItem(STREAK_KEY)) || 0;
-
-    if (lastDateTracked && lastDateTracked !== todayStr) {
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      const yesterdayStr = isoDate(yesterday);
-
-      if (lastDateTracked !== yesterdayStr) {
-        streak = 0;
-        localStorage.setItem(STREAK_KEY, '0');
-      }
-    }
-
-    const sl = document.getElementById('game-streak-lbl');
-    const sv = document.getElementById('game-streak-val');
-    if (streak > 0) {
-      sv.textContent = streak;
-      sl.style.display = 'flex';
-    } else {
-      sl.style.display = 'none';
-    }
-  }
-
-  function applyStreakIncrement() {
-    const todayStr = isoDate(new Date());
-    const lastDateTracked = localStorage.getItem(LAST_DATE_KEY);
-    let streak = parseInt(localStorage.getItem(STREAK_KEY)) || 0;
-
-    if (lastDateTracked !== todayStr) {
-      streak++;
-      localStorage.setItem(STREAK_KEY, streak);
-      localStorage.setItem(LAST_DATE_KEY, todayStr);
-    }
-    updateStreakLogik();
-  }
-
-  function updateQuestsUI() {
-    const setQuest = (id, cond) => {
-      const el = document.getElementById(id);
-      if(!el) return;
-      if (cond) {
-        el.classList.add('completed');
-        el.querySelector('.material-symbols-rounded').textContent = 'check_circle';
-      } else {
-        el.classList.remove('completed');
-        el.querySelector('.material-symbols-rounded').textContent = 'radio_button_unchecked';
-      }
-    };
-    setQuest('q-kcal', document.getElementById('inp-kcal').value);
-    setQuest('q-protein', document.getElementById('inp-protein').value);
-    setQuest('q-sleep', AppState.sleepTouched);
-    setQuest('q-workout', document.getElementById('inp-workout').value.trim());
-  }
-
-  function showPopupToast(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add('show');
-    setTimeout(() => el.classList.remove('show'), 3500);
-  }
-
-  // ══════════════════════════════════════════════
-  // HELPER & NETZWERK-STEUERUNG
-  // ══════════════════════════════════════════════
-  function isoDate(date) {
-    const d = new Date(date);
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  }
-
-  function sameDay(d1, d2) {
-    return d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
-  }
-
-  function refreshDateDisplay() {
-    const today = new Date();
-    const current = AppState.currentDate;
-    
-    document.getElementById('lbl-today').style.display = sameDay(current, today) ? 'inline-block' : 'none';
-    document.getElementById('lbl-weekday').textContent = sameDay(current, today) ? 'Heute' : current.toLocaleDateString('de-DE', { weekday: 'long' });
-    document.getElementById('lbl-long').textContent = current.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
-  }
-
-  function setStatus(barId, type, msg, html = '') {
-    const bar = document.getElementById(barId);
-    if (!bar) return;
-    bar.className = 'status-bar show ' + type;
-    if (html) { bar.innerHTML = html; }
-    else { bar.innerHTML = `<span class="material-symbols-rounded">${type === 'loading' ? 'sync' : type === 'success' ? 'check_circle' : 'error'}</span> ${msg}`; }
-    if (type === 'loading' && bar.querySelector('.material-symbols-rounded')) {
-      bar.querySelector('.material-symbols-rounded').classList.add('spin');
-    }
-  }
-
-  function hideStatus(barId) {
-    const bar = document.getElementById(barId);
-    if (bar) bar.className = 'status-bar';
-  }
-
-  async function apiRequest(params) {
-    if (!AppState.scriptUrl) throw new Error('Keine Apps Script URL hinterlegt!');
-    const url = new URL(AppState.scriptUrl);
-    Object.keys(params).forEach(k => url.searchParams.append(k, params[k]));
-    
-    const response = await fetch(url.toString(), { method: 'GET', mode: 'cors' });
-    if (!response.ok) throw new Error(`HTTP Error Status: ${response.status}`);
-    const data = await response.json();
-    if (data.status === 'error') throw new Error(data.message || 'API Skript-Fehler');
-    return data;
-  }
-
-  // ══════════════════════════════════════════════
-  // CORE FUNCTIONS: DATEN LADEN & SPEICHERN
-  // ══════════════════════════════════════════════
-  function changeDay(offset) {
-    AppState.currentDate.setDate(AppState.currentDate.getDate() + offset);
-    refreshDateDisplay();
-    clearInputs();
-    
-    if (loadTimeout) clearTimeout(loadTimeout);
-    loadTimeout = setTimeout(loadDay, 250);
-  }
-
-  function clearInputs() {
-    document.getElementById('inp-kcal').value = '';
-    document.getElementById('inp-weight').value = '';
-    document.getElementById('inp-protein').value = '';
-    document.getElementById('inp-carbs').value = '';
-    document.getElementById('inp-fat').value = '';
-    document.getElementById('inp-workout').value = '';
-    AppState.currentWorkout = '';
-    AppState.currentNote = '';
-    AppState.sleepTouched = false;
-    onSleepInput(0, false);
-    updateQuestsUI();
-  }
-
-  async function loadDay() {
-    if (!AppState.scriptUrl) return;
-    const dateStr = isoDate(AppState.currentDate);
-    
-    // Cache Check
-    if (AppState.cache[dateStr]) {
-      applyDayData(AppState.cache[dateStr]);
-      return;
-    }
-
-    setStatus('tracker-status', 'loading', 'Lade Daten für ' + dateStr + '...');
-    try {
-      const data = await apiRequest({ action: 'get', date: dateStr });
-      if (data && data.data) {
-        AppState.cache[dateStr] = data.data;
-        // Kalender-Cache-Abgleich
-        if (!AppState.calDataCache[dateStr] || JSON.stringify(AppState.calDataCache[dateStr]) !== JSON.stringify(data.data)) {
-          AppState.calDataCache[dateStr] = data.data;
-        }
-        if (isoDate(AppState.currentDate) === dateStr) {
-          applyDayData(data.data);
-        }
-      }
-      hideStatus('tracker-status');
-    } catch (err) {
-      console.error(err);
-      setStatus('tracker-status', 'error', 'Fehler beim Laden: ' + err.message);
-    }
-  }
-
-  function applyDayData(d) {
-    document.getElementById('inp-kcal').value = d.kcal || '';
-    document.getElementById('inp-weight').value = d.weight || '';
-    document.getElementById('inp-protein').value = d.protein || '';
-    document.getElementById('inp-carbs').value = d.carbs || '';
-    document.getElementById('inp-fat').value = d.fat || '';
-    document.getElementById('inp-workout').value = d.workout || '';
-    document.getElementById('inp-note').value = d.note || '';
-    
-    AppState.currentWorkout = d.workout || '';
-    AppState.currentNote = d.note || '';
-    
-    if (d.sleep !== undefined && d.sleep !== null && d.sleep !== "" && d.sleep !== 0) {
-      AppState.sleepTouched = true;
-      onSleepInput(d.sleep, false);
-    } else {
-      AppState.sleepTouched = false;
-      onSleepInput(0, false);
-    }
-    updateQuestsUI();
-  }
-
-  function onSleepInput(val, touch = true) {
-    const s = document.getElementById('inp-sleep');
-    const d = document.getElementById('sleep-display');
-    s.value = val;
-    s.style.setProperty('--pct', val + '%');
-    
-    if (touch) AppState.sleepTouched = true;
-
-    if (!AppState.sleepTouched && val == 0) {
-      d.textContent = '—';
-      d.classList.add('empty');
-    } else {
-      d.textContent = val + ' / 100';
-      d.classList.remove('empty');
-    }
-    updateQuestsUI();
-  }
-
-  async function saveDay() {
-    if (!AppState.scriptUrl) return;
-    const dateStr = isoDate(AppState.currentDate);
-    
-    const kcal = document.getElementById('inp-kcal').value;
-    const weight = document.getElementById('inp-weight').value;
-    const protein = document.getElementById('inp-protein').value;
-    const carbs = document.getElementById('inp-carbs').value;
-    const fat = document.getElementById('inp-fat').value;
-    
-    const payload = {
-      action: 'save',
-      date: dateStr,
-      kcal: kcal ? parseInt(kcal) : '',
-      weight: weight ? parseFloat(weight) : '',
-      protein: protein ? parseInt(protein) : '',
-      carbs: carbs ? parseInt(carbs) : '',
-      fat: fat ? parseInt(fat) : '',
-      workout: AppState.currentWorkout.trim(),
-      sleep: AppState.sleepTouched ? parseInt(document.getElementById('inp-sleep').value) : '',
-      note: AppState.currentNote.trim()
-    };
-
-    // Lokalen State sofort füttern & persistent halten
-    AppState.cache[dateStr] = payload;
-    AppState.calDataCache[dateStr] = payload;
-
-    setStatus('save-status', 'loading', 'Speichere Log in Cloud...');
-    try {
-      await apiRequest(payload);
-      
-      // Gewichtsrekord-Prüfung
-      if (payload.weight) {
-        const w = parseFloat(payload.weight);
-        if (AppState.goal === 'cut') {
-          if (AppState.bestWeight === null || w < AppState.bestWeight) {
-            AppState.bestWeight = w;
-            localStorage.setItem(WEIGHT_KEY, w);
-            showPopupToast('weight-toast');
-          }
-        } else {
-          if (AppState.bestWeight === null || w > AppState.bestWeight) {
-            AppState.bestWeight = w;
-            localStorage.setItem(WEIGHT_KEY, w);
-            showPopupToast('weight-toast');
-          }
-        }
-      }
-
-      calculateAndAwardXp(dateStr);
-      if (sameDay(AppState.currentDate, new Date())) {
-        applyStreakIncrement();
-      }
-
-      setStatus('save-status', 'success', 'Erfolgreich synchronisiert!');
-      setTimeout(() => hideStatus('save-status'), 2500);
-    } catch (err) {
-      console.error(err);
-      setStatus('save-status', 'error', 'Fehler beim Speichern: ' + err.message);
-    }
-  }
-
-  // ══════════════════════════════════════════════
-  // TAB SELECTION & TABS SWITCHING
-  // ══════════════════════════════════════════════
-  function switchTab(tabId) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    
-    const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
-    if(targetBtn) targetBtn.classList.add('active');
-    
-    const targetPage = document.getElementById('page-' + tabId);
-    if(targetPage) targetPage.classList.add('active');
-
-    if (tabId === 'analyse') loadAnalytics();
-    if (tabId === 'kalender') renderCalendar();
-  }
-
-  // ══════════════════════════════════════════════
-  // ANALYTICS & CHARTS (REPARIERT)
-  // ══════════════════════════════════════════════
-  function initCharts() {
-    const cfg = (ctx, type, datasets, options = {}) => new Chart(ctx, {
-      type: type,
-      data: { datasets: datasets },
-      options: Object.assign({
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
-        scales: {
-          x: { type: 'category', grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#5a5a72', font: { family: 'Outfit', size: 10 } } },
-          y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#5a5a72', font: { family: 'Space Mono', size: 10 } } }
-        }
-      }, options)
-    });
-
-    AppState.charts.weight = cfg(document.getElementById('chart-weight'), 'line', [{ label: 'Gewicht', data: [], borderColor: '#60a5fa', tension: 0.2, pointRadius: 2, fill: false }]);
-    AppState.charts.kcal = cfg(document.getElementById('chart-kcal'), 'bar', [{ label: 'Kalorien', data: [], backgroundColor: 'rgba(245,166,35,0.4)', borderRadius: 4 }]);
-    AppState.charts.sleep = cfg(document.getElementById('chart-sleep'), 'line', [{ label: 'Schlaf', data: [], borderColor: '#a78bfa', tension: 0.1, pointRadius: 2 }], { scales: { y: { min: 0, max: 100 } } });
-    
-    AppState.charts.macros = new Chart(document.getElementById('chart-macros'), {
-      type: 'line',
-      data: { datasets: [
-        { label: 'Prot', data: [], borderColor: '#4ade80', tension: 0.2, pointRadius: 1 },
-        { label: 'Carb', data: [], borderColor: '#a78bfa', tension: 0.2, pointRadius: 1 },
-        { label: 'Fat', data: [], borderColor: '#fb923c', tension: 0.2, pointRadius: 1 }
-      ]},
-      options: {
-        responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: true, position: 'top', labels: { color: '#e8e8f0', font: { size: 10 } } } },
-        scales: {
-          x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#5a5a72', font: { size: 10 } } },
-          y: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#5a5a72', font: { size: 10 } } }
-        }
-      }
-    });
-  }
-
-  function setRange(days, element) {
-    document.querySelectorAll('.range-pill').forEach(p => p.classList.remove('active'));
-    element.classList.add('active');
-    AppState.currentRange = days;
-    loadAnalytics();
-  }
-
-  async function loadAnalytics() {
-    if (!AppState.scriptUrl) return;
-    setStatus('analyse-status', 'loading', `Lade historische Daten der letzten ${AppState.currentRange} Tage...`);
-    try {
-      const data = await apiRequest({ action: 'getHistory', days: AppState.currentRange });
-      if (data && data.data) {
-        // Lokalen globalen Verlaufscache parallel füttern
-        data.data.forEach(row => {
-          if (row.date) {
-            AppState.calDataCache[row.date] = row;
-          }
-        });
-        updateCharts(data.data);
-        hideStatus('analyse-status');
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus('analyse-status', 'error', 'Verlauf konnte nicht geladen werden: ' + err.message);
-    }
-  }
-
-  function updateCharts(historyArray) {
-    const labels = historyArray.map(item => {
-      const parts = item.date.split('-');
-      return parts.length === 3 ? `${parts[2]}.${parts[1]}.` : item.date;
-    });
-
-    const wChart = AppState.charts.weight;
-    wChart.data.labels = labels;
-    wChart.data.datasets[0].data = historyArray.map(item => item.weight || null);
-    wChart.update();
-
-    const kChart = AppState.charts.kcal;
-    kChart.data.labels = labels;
-    kChart.data.datasets[0].data = historyArray.map(item => item.kcal || null);
-    kChart.update();
-
-    const sChart = AppState.charts.sleep;
-    sChart.data.labels = labels;
-    sChart.data.datasets[0].data = historyArray.map(item => (item.sleep && item.sleep > 0) ? item.sleep : null);
-    sChart.update();
-
-    const mChart = AppState.charts.macros;
-    mChart.data.labels = labels;
-    mChart.data.datasets[0].data = historyArray.map(item => item.protein || null);
-    mChart.data.datasets[1].data = historyArray.map(item => item.carbs || null);
-    mChart.data.datasets[2].data = historyArray.map(item => item.fat || null);
-    mChart.update();
-  }
-
-  // ══════════════════════════════════════════════
-  // KALENDER LOGIK (REPARIERT)
-  // ══════════════════════════════════════════════
-  function calDayData(dateStr) {
-    return AppState.calDataCache[dateStr] || null;
-  }
-
-  function calChangeMonth(offset) {
-    AppState.calViewDate.setMonth(AppState.calViewDate.getMonth() + offset);
-    renderCalendar();
-  }
-
-  async function renderCalendar() {
-    const view = AppState.calViewDate;
-    const year = view.getFullYear();
-    const month = view.getMonth();
-
-    document.getElementById('cal-month-label').textContent = view.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
-    document.getElementById('cal-month-sub').textContent = 'Klicke einen Tag für eine Schnellübersicht';
-
-    const grid = document.getElementById('cal-grid');
-    grid.innerHTML = '';
-
-    const firstDay = new Date(year, month, 1);
-    let startOffset = firstDay.getDay() - 1; 
-    if (startOffset < 0) startOffset = 6; 
-
-    const prevMonthEnd = new Date(year, month, 0).getDate();
-    const currentMonthEnd = new Date(year, month + 1, 0).getDate();
-
-    // Tage Vormonat auffüllen
-    for (let i = startOffset - 1; i >= 0; i--) {
-      const d = new Date(year, month - 1, prevMonthEnd - i);
-      grid.appendChild(createCalCell(d, true));
-    }
-
-    // Tage aktueller Monat
-    for (let i = 1; i <= currentMonthEnd; i++) {
-      const d = new Date(year, month, i);
-      grid.appendChild(createCalCell(d, false));
-    }
-
-    // Tage Folgemonat auffüllen
-    const totalCells = grid.children.length;
-    const remaining = totalCells % 7 === 0 ? 0 : 7 - (totalCells % 7);
-    for (let i = 1; i <= remaining; i++) {
-      const d = new Date(year, month + 1, i);
-      grid.appendChild(createCalCell(d, true));
-    }
-
-    selectCalendarDay(AppState.calSelectedDate);
-
-    // Fehlende Monatsdaten asynchron nachladen
-    if (AppState.scriptUrl) {
-      try {
-        const data = await apiRequest({ action: 'getMonth', year: year, month: month + 1 });
-        if (data && data.data) {
-          Object.assign(AppState.calDataCache, data.data);
-          // Zellen-Dots aktualisieren ohne den gesamten DOM neu zu bauen
-          grid.querySelectorAll('.cal-cell').forEach(cell => {
-            const ds = cell.getAttribute('data-date');
-            if (ds && AppState.calDataCache[ds]) {
-              const row = AppState.calDataCache[ds];
-              if ((row.kcal || row.workout || row.weight) && !cell.querySelector('.cal-dot')) {
-                const dot = document.createElement('div');
-                dot.className = 'cal-dot';
-                cell.appendChild(dot);
-              }
-            }
-          });
-          // Update des Info-Panels für den selektierten Tag
-          renderCalSummary(AppState.calSelectedDate);
-        }
-      } catch (e) {
-        console.error("Fehler beim Laden der Monatsdaten:", e);
-      }
-    }
-  }
-
-  function createCalCell(date, isOther) {
-    const cell = document.createElement('div');
-    const dateStr = isoDate(date);
-    cell.className = 'cal-cell';
-    cell.setAttribute('data-date', dateStr);
-
-    if (isOther) cell.classList.add('other-month');
-    if (date > new Date()) cell.classList.add('future');
-    if (sameDay(date, new Date())) cell.classList.add('is-today');
-
-    const num = document.createElement('div');
-    num.className = 'cal-day-num';
-    num.textContent = date.getDate();
-    cell.appendChild(num);
-
-    const d = calDayData(dateStr);
-    if (d && (d.kcal || d.workout || d.weight)) {
-      const dot = document.createElement('div');
-      dot.className = 'cal-dot';
-      cell.appendChild(dot);
-    }
-
-    cell.addEventListener('click', (e) => {
-      if (cell.classList.contains('future')) return;
-      triggerVibration(8);
-      AppState.calSelectedDate = new Date(date);
-      selectCalendarDay(date, e.currentTarget);
-    });
-
-    return cell;
-  }
-
-  function selectCalendarDay(date, clickedElement) {
-    document.querySelectorAll('.cal-cell').forEach(c => c.classList.remove('selected'));
-    if (clickedElement) clickedElement.classList.add('selected');
-    else {
-      const found = document.querySelector(`.cal-cell[data-date="${isoDate(date)}"]`);
-      if (found) found.classList.add('selected');
-    }
-    renderCalSummary(date);
-  }
-
-  function renderCalSummary(date) {
-    const dateStr = isoDate(date);
-    document.getElementById('cal-summary-label').textContent = sameDay(date, new Date()) ? 'Heute' : date.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
-    const d = calDayData(dateStr);
-    
-    const setM = (id, val, u = '') => {
-      const el = document.getElementById('csm-' + id);
-      if (val) { el.textContent = val + u; el.classList.remove('empty'); }
-      else { el.textContent = '—'; el.classList.add('empty'); }
-    };
-    
-    setM('kcal', d?.kcal);
-    setM('weight', d?.weight, ' kg');
-    setM('sleep', d?.sleep);
-    setM('protein', d?.protein, 'g');
-    setM('carbs', d?.carbs, 'g');
-    setM('fat', d?.fat, 'g');
-    
-    const wb = document.getElementById('csm-workout');
-    if (d?.workout) { wb.innerHTML = `<span class="material-symbols-rounded" style="font-size:14px">exercise</span> ${d.workout}`; wb.style.display = 'flex'; }
-    else { wb.style.display = 'none'; }
-    
-    const nb = document.getElementById('csm-note');
-    if (d?.note) { nb.textContent = `"${d.note}"`; nb.style.display = 'block'; }
-    else { nb.style.display = 'none'; }
-  }
-
-  function goToSelectedDay() {
-    AppState.currentDate = new Date(AppState.calSelectedDate);
-    refreshDateDisplay();
-    clearInputs();
-    loadDay();
-    switchTab('tracker');
-  }
-
-  // ══════════════════════════════════════════════
-  // CONFIGURATION / SETUP LOGIK
-  // ══════════════════════════════════════════════
-  function saveSetup() {
-    const url = document.getElementById('url-input').value.trim();
-    const goal = document.getElementById('goal-select').value;
-
-    if (!url) {
-      setStatus('tracker-status', 'error', 'Bitte trage eine korrekte URL ein.');
-      return;
-    }
-
-    AppState.scriptUrl = url;
-    AppState.goal = goal;
-    localStorage.setItem(URL_KEY, url);
-    localStorage.setItem(GOAL_KEY, goal);
-
+// ══════════════════════════════════════════════
+//  STATE MANAGEMENT & GAMIFICATION
+// ══════════════════════════════════════════════
+const URL_KEY = 'healthlog_url';
+const GOAL_KEY = 'healthlog_goal';
+const WEIGHT_KEY = 'healthlog_best_weight';
+const XP_KEY = 'healthlog_total_xp';
+const STREAK_KEY = 'healthlog_streak';
+const LAST_DATE_KEY = 'healthlog_last_date';
+const TRACKED_HISTORY_KEY = 'healthlog_xp_history'; // Neu: Verhindert doppelte XP am selben Tag
+
+const AppState = {
+  scriptUrl: localStorage.getItem(URL_KEY) || '',
+  goal: localStorage.getItem(GOAL_KEY) || 'cut',
+  bestWeight: localStorage.getItem(WEIGHT_KEY) ? parseFloat(localStorage.getItem(WEIGHT_KEY)) : null,
+  totalXp: localStorage.getItem(XP_KEY) ? parseInt(localStorage.getItem(XP_KEY)) : 0,
+  lastKnownLevel: null,
+  
+  currentDate: new Date(),
+  currentWorkout: '',
+  currentNote: '',
+  sleepTouched: false,
+  
+  cache: {},
+  calDataCache: {},
+  charts: {},
+  currentRange: 7,
+  
+  calViewDate: new Date(),
+  calSelectedDate: new Date()
+};
+
+let loadTimeout;
+
+// ══════════════════════════════════════════════
+//  INITIALISIERUNG
+// ══════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  initEventListeners();
+  refreshDateDisplay();
+  initCharts();
+  updateGamificationUI(false);
+  
+  if (AppState.scriptUrl) {
     document.getElementById('setup-banner').style.display = 'none';
     document.getElementById('reset-url-btn').classList.add('visible');
-    document.getElementById('save-btn').disabled = false;
-
-    setStatus('tracker-status', 'success', 'Einstellungen erfolgreich gespeichert!');
-    setTimeout(() => hideStatus('tracker-status'), 2000);
     loadDay();
+  } else {
+    document.getElementById('save-btn').disabled = true;
   }
+});
 
-  function resetSetup() {
-    document.getElementById('url-input').value = AppState.scriptUrl;
-    document.getElementById('goal-select').value = AppState.goal;
-    document.getElementById('setup-banner').style.display = 'block';
-    document.getElementById('reset-url-btn').classList.remove('visible');
+function triggerVibration(pattern = 15) {
+  if ('vibrate' in navigator) {
+    navigator.vibrate(pattern);
   }
+}
+
+function initEventListeners() {
+  document.getElementById('btn-prev-day').addEventListener('click', () => { triggerVibration(10); changeDay(-1); });
+  document.getElementById('btn-next-day').addEventListener('click', () => { triggerVibration(10); changeDay(1); });
+  
+  document.getElementById('save-setup-btn').addEventListener('click', saveSetup);
+  document.getElementById('reset-url-btn').addEventListener('click', resetSetup);
+  
+  document.querySelectorAll('.metric-input[type="number"]').forEach(input => {
+    input.addEventListener('input', (e) => {
+      if (parseFloat(e.target.value) < 0) e.target.value = 0;
+    });
+  });
+  
+  document.getElementById('inp-kcal').addEventListener('input', updateQuestsUI);
+  document.getElementById('inp-protein').addEventListener('input', updateQuestsUI);
+  document.getElementById('inp-workout').addEventListener('input', (e) => {
+    AppState.currentWorkout = e.target.value;
+    updateQuestsUI();
+  });
+  
+  document.getElementById('inp-note').addEventListener('input', (e) => AppState.currentNote = e.target.value);
+  document.getElementById('inp-sleep').addEventListener('input', (e) => onSleepInput(e.target.value));
+  
+  document.getElementById('save-btn').addEventListener('click', saveDay);
+  
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      triggerVibration(12);
+      switchTab(btn.getAttribute('data-tab'));
+    });
+  });
+  
+  document.querySelectorAll('.range-pill').forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      triggerVibration(10);
+      setRange(parseInt(pill.getAttribute('data-days')), pill);
+    });
+  });
+  
+  document.getElementById('cal-prev-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(-1); });
+  document.getElementById('cal-next-month').addEventListener('click', () => { triggerVibration(10); calChangeMonth(1); });
+  
+  document.getElementById('btn-go-to-day').addEventListener('click', () => { triggerVibration(15); goToSelectedDay(); });
+}
+
+// ══════════════════════════════════════════════
+//  GAMIFICATION LOGIK (ANTI-CHEAT & VALIDIERUNG)
+// ══════════════════════════════════════════════
+function getXpHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(TRACKED_HISTORY_KEY)) || {};
+  } catch(e) {
+    return {};
+  }
+}
+
+function saveXpHistory(history) {
+  localStorage.setItem(TRACKED_HISTORY_KEY, JSON.stringify(history));
+}
+
+function calculateAndAwardXp(dateStr) {
+  const history = getXpHistory();
+  if (!history[dateStr]) {
+    history[dateStr] = { base: false, kcal: false, protein: false, sleep: false, workout: false };
+  }
+  
+  const currentDayXp = history[dateStr];
+  let totalAwardedThisRun = 0;
+  
+  // 1. Basis-XP fürs Speichern (30 XP)
+  if (!currentDayXp.base) {
+    totalAwardedThisRun += 30;
+    currentDayXp.base = true;
+  }
+  
+  // 2. Quest: Kalorien (+10 XP)
+  if (!currentDayXp.kcal && document.getElementById('inp-kcal').value) {
+    totalAwardedThisRun += 10;
+    currentDayXp.kcal = true;
+  }
+  
+  // 3. Quest: Protein (+10 XP)
+  if (!currentDayXp.protein && document.getElementById('inp-protein').value) {
+    totalAwardedThisRun += 10;
+    currentDayXp.protein = true;
+  }
+  
+  // 4. Quest: Schlaf (+10 XP)
+  if (!currentDayXp.sleep && AppState.sleepTouched) {
+    totalAwardedThisRun += 10;
+    currentDayXp.sleep = true;
+  }
+  
+  // 5. Quest: Workout (+25 XP)
+  if (!currentDayXp.workout && AppState.currentWorkout && AppState.currentWorkout.trim()) {
+    totalAwardedThisRun += 25;
+    currentDayXp.workout = true;
+  }
+  
+  if (totalAwardedThisRun > 0) {
+    saveXpHistory(history);
+    addXp(totalAwardedThisRun);
+  }
+  return totalAwardedThisRun;
+}
+
+function addXp(amount) {
+  if (amount <= 0) return;
+  AppState.totalXp += amount;
+  localStorage.setItem(XP_KEY, AppState.totalXp);
+  updateGamificationUI(true);
+}
+
+function updateQuestsUI() {
+  const checkQuest = (id, condition) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (condition) {
+      el.classList.add('completed');
+      el.querySelector('.material-symbols-rounded').textContent = 'check_circle';
+    } else {
+      el.classList.remove('completed');
+      el.querySelector('.material-symbols-rounded').textContent = 'radio_button_unchecked';
+    }
+  };
+  
+  checkQuest('q-kcal', document.getElementById('inp-kcal').value);
+  checkQuest('q-protein', document.getElementById('inp-protein').value);
+  checkQuest('q-sleep', AppState.sleepTouched);
+  checkQuest('q-workout', AppState.currentWorkout && AppState.currentWorkout.trim());
+}
+
+function updateGamificationUI(animate = false) {
+  const currentLevel = Math.floor(AppState.totalXp / 100) + 1;
+  const xpInCurrentLevel = AppState.totalXp % 100;
+  
+  if (AppState.lastKnownLevel === null) {
+    AppState.lastKnownLevel = currentLevel;
+  }
+  
+  if (animate && currentLevel > AppState.lastKnownLevel) {
+    triggerVibration([100, 60, 100, 60, 300]);
+    const lvToast = document.getElementById('levelup-toast');
+    lvToast.querySelector('.toast-text').textContent = `LEVEL UP! Level ${currentLevel} 🎉`;
+    lvToast.classList.add('show');
+    setTimeout(() => lvToast.classList.remove('show'), 3500);
+  }
+  AppState.lastKnownLevel = currentLevel;
+
+  const titles = ["Athlete", "Elite Tracker", "Pro Performer", "Iron Mind", "Master of Health"];
+  const titleIndex = Math.min(Math.floor((currentLevel - 1) / 2), titles.length - 1);
+  document.getElementById('game-level-lbl').innerHTML = `<span class="material-symbols-rounded">military_tech</span> Level ${currentLevel} ${titles[titleIndex]}`;
+  document.getElementById('game-xp-lbl').textContent = `${xpInCurrentLevel} / 100 XP`;
+  
+  const progressBar = document.getElementById('game-progress');
+  progressBar.style.width = `${xpInCurrentLevel}%`;
+
+  const currentStreak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
+  const streakLbl = document.getElementById('game-streak-lbl');
+  if (currentStreak > 0) {
+    document.getElementById('game-streak-val').textContent = currentStreak;
+    streakLbl.style.display = 'flex';
+  } else {
+    streakLbl.style.display = 'none';
+  }
+  
+  updateQuestsUI();
+}
+
+// ══════════════════════════════════════════════
+//  SETTINGS & NAVIGATION
+// ══════════════════════════════════════════════
+function saveSetup() {
+  const url = document.getElementById('url-input').value.trim();
+  const goal = document.getElementById('goal-select').value;
+  if (!url.includes('script.google.com')) { alert('Ungültige Apps Script URL.'); return; }
+  
+  AppState.scriptUrl = url;
+  AppState.goal = goal;
+  localStorage.setItem(URL_KEY, url); localStorage.setItem(GOAL_KEY, goal);
+  
+  document.getElementById('setup-banner').style.display = 'none';
+  document.getElementById('reset-url-btn').classList.add('visible');
+  document.getElementById('save-btn').disabled = false;
+  loadDay();
+}
+
+function resetSetup() {
+  document.getElementById('url-input').value = AppState.scriptUrl;
+  document.getElementById('goal-select').value = AppState.goal;
+  document.getElementById('setup-banner').style.display = 'block';
+  document.getElementById('reset-url-btn').classList.remove('visible');
+}
+
+function changeDay(d) {
+  const next = new Date(AppState.currentDate);
+  next.setDate(next.getDate() + d);
+  if (next > new Date()) return;
+  AppState.currentDate = next;
+  refreshDateDisplay();
+  
+  clearTimeout(loadTimeout);
+  if (AppState.scriptUrl) {
+    const dateStr = isoDate(AppState.currentDate);
+    if (AppState.cache[dateStr]) fillForm(AppState.cache[dateStr]);
+    else clearForm();
+    loadTimeout = setTimeout(() => loadDay(), 300);
+  }
+}
+
+function refreshDateDisplay() {
+  const today = new Date();
+  const isToday = sameDay(AppState.currentDate, today);
+  document.getElementById('lbl-weekday').textContent = isToday ? 'Heute' : AppState.currentDate.toLocaleDateString('de-DE', { weekday: 'long' });
+  document.getElementById('lbl-long').textContent = AppState.currentDate.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
+  document.getElementById('lbl-today').style.display = isToday ? 'inline-block' : 'none';
+  document.getElementById('btn-next-day').style.opacity = isToday ? '0.25' : '1';
+}
+
+function sameDay(a, b) { return a.toDateString() === b.toDateString(); }
+function isoDate(d) { return d.toISOString().split('T')[0]; }
+
+function onSleepInput(v) {
+  AppState.sleepTouched = true;
+  document.getElementById('inp-sleep').style.setProperty('--pct', v + '%');
+  const el = document.getElementById('sleep-display');
+  el.textContent = v; el.classList.remove('empty');
+  updateQuestsUI();
+}
+
+// ══════════════════════════════════════════════
+//  BACKEND SYNC (GET & SET)
+// ══════════════════════════════════════════════
+async function loadDay() {
+  showStatus('tracker-status', 'loading', 'Lade Profile-Daten…');
+  const dateStr = isoDate(AppState.currentDate);
+  try {
+    const r = await fetch(`${AppState.scriptUrl}?action=get&date=${dateStr}`);
+    const d = await r.json();
+    if (d && d.date) {
+      AppState.cache[dateStr] = d;
+      fillForm(d);
+    } else { 
+      clearForm();
+    }
+    showStatus('tracker-status', '', '');
+  } catch {
+    showStatus('tracker-status', 'error', '⚠️ Verbindung träge oder offline');
+  }
+}
+
+function clearForm() {
+  ['kcal','protein','carbs','fat','weight','workout','note'].forEach(k => {
+    document.getElementById('inp-' + k).value = '';
+  });
+  AppState.currentWorkout = '';
+  AppState.currentNote = ''; AppState.sleepTouched = false;
+  const sl = document.getElementById('inp-sleep'); sl.value = 0; sl.style.setProperty('--pct', '0%');
+  const disp = document.getElementById('sleep-display');
+  disp.textContent = '—'; disp.classList.add('empty');
+  updateQuestsUI();
+}
+
+function fillForm(d) {
+  const set = (k, v) => { if (v !== undefined && v !== null) document.getElementById('inp-' + k).value = v; };
+  set('kcal', d.kcal); set('protein', d.protein); set('carbs', d.carbs); set('fat', d.fat); set('weight', d.weight); set('note', d.note);
+  AppState.currentWorkout = d.workout || '';
+  document.getElementById('inp-workout').value = AppState.currentWorkout;
+  AppState.currentNote = d.note || '';
+  
+  if (d.weight) {
+    const wVal = parseFloat(d.weight);
+    if (AppState.bestWeight === null) updateBestWeight(wVal);
+    else {
+      if (AppState.goal === 'bulk' && wVal > AppState.bestWeight) updateBestWeight(wVal);
+      if (AppState.goal === 'cut' && wVal < AppState.bestWeight) updateBestWeight(wVal);
+    }
+  }
+  if (d.sleep !== undefined && d.sleep !== '') {
+    AppState.sleepTouched = true;
+    const val = parseInt(d.sleep);
+    const sl = document.getElementById('inp-sleep'); sl.value = val; sl.style.setProperty('--pct', val + '%');
+    const disp = document.getElementById('sleep-display');
+    disp.textContent = val; disp.classList.remove('empty');
+  } else {
+    AppState.sleepTouched = false;
+    const disp = document.getElementById('sleep-display'); disp.textContent = '—';
+    disp.classList.add('empty');
+  }
+  updateQuestsUI();
+}
+
+function updateBestWeight(v) { AppState.bestWeight = v; localStorage.setItem(WEIGHT_KEY, v); }
+
+async function saveDay() {
+  if (!AppState.scriptUrl) return;
+  const currentWeightVal = document.getElementById('inp-weight').value;
+  const dateStr = isoDate(AppState.currentDate);
+  
+  const currentData = {
+    action:  'set', date: dateStr,
+    kcal:    document.getElementById('inp-kcal').value || '',
+    protein: document.getElementById('inp-protein').value || '',
+    carbs:   document.getElementById('inp-carbs').value || '',
+    fat:     document.getElementById('inp-fat').value || '',
+    weight:  currentWeightVal || '',
+    workout: AppState.currentWorkout,
+    note:    AppState.currentNote,
+    sleep:   AppState.sleepTouched ? document.getElementById('inp-sleep').value : ''
+  };
+  
+  AppState.cache[dateStr] = currentData;
+  const params = new URLSearchParams(currentData);
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true;
+  showStatus('save-status', 'loading', 'Sichere Daten im Sheet…');
+  
+  try {
+    const r = await fetch(`${AppState.scriptUrl}?${params.toString()}`);
+    const d = await r.json();
+    if (d.success) {
+      triggerVibration([40, 30, 40]);
+      showStatus('save-status', 'success', '✓ Datensatz erfolgreich gesichert!');
+      
+      // Berechnet und vergibt XP nur dann, wenn sie an diesem Kalendertag noch nicht geholt wurden
+      calculateAndAwardXp(dateStr);
+
+      // STREAK LOGIK
+      const todayStr = isoDate(new Date());
+      if (todayStr === dateStr) {
+        const lastTracked = localStorage.getItem(LAST_DATE_KEY) || '';
+        let currentStreak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
+        
+        if (lastTracked !== todayStr) {
+          const yesterday = new Date();
+          yesterday.setDate(yesterday.getDate() - 1);
+          const yesterdayStr = isoDate(yesterday);
+          
+          if (lastTracked === yesterdayStr) {
+            currentStreak += 1;
+          } else {
+            currentStreak = 1;
+          }
+          
+          localStorage.setItem(STREAK_KEY, currentStreak);
+          localStorage.setItem(LAST_DATE_KEY, todayStr);
+          
+          const streakBonus = currentStreak * 5;
+          addXp(streakBonus);
+          
+          setTimeout(() => {
+            const toast = document.getElementById('weight-toast');
+            toast.querySelector('.toast-text').textContent = `🔥 ${currentStreak} Tage Streak! (+${streakBonus} XP Bonus)`;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2800);
+          }, 2200);
+        }
+      }
+
+      if (currentWeightVal) {
+        const newWeight = parseFloat(currentWeightVal);
+        let isRecord = false;
+        let recordMsg = '';
+        if (AppState.goal === 'bulk' && newWeight > AppState.bestWeight) { isRecord = true; recordMsg = 'Neues Höchstgewicht! 🔥'; }
+        else if (AppState.goal === 'cut' && newWeight < AppState.bestWeight) { isRecord = true; recordMsg = 'Neues Tiefstgewicht! 📉'; }
+        
+        if (isRecord) {
+          const toast = document.getElementById('weight-toast');
+          toast.querySelector('.toast-text').textContent = recordMsg;
+          toast.classList.add('show');
+          setTimeout(() => toast.classList.remove('show'), 2500);
+          updateBestWeight(newWeight);
+        }
+      }
+      setTimeout(() => showStatus('save-status', '', ''), 2000);
+    } else { throw new Error(); }
+  } catch {
+    showStatus('save-status', 'error', '⚠️ Cloud-Speicherung fehlgeschlagen');
+  } finally { btn.disabled = false; }
+}
+
+// ══════════════════════════════════════════════
+//  TAB-SWITCH & CHARTS
+// ══════════════════════════════════════════════
+function switchTab(tab) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  
+  document.getElementById('page-' + tab).classList.add('active');
+  document.querySelector(`.tab-btn[data-tab="${tab}"]`).classList.add('active');
+  
+  if (tab === 'analyse' && AppState.scriptUrl) loadAnalytics();
+  if (tab === 'kalender' && AppState.scriptUrl) initCalendar();
+}
+
+const CHART_DEFAULTS = {
+  responsive: true, maintainAspectRatio: true, spanGaps: true,
+  plugins: { legend: { display: false } },
+  scales: {
+    x: { ticks: { color: '#5a5a72', font: { size: 10, family: 'Outfit' }, maxTicksLimit: 7 }, grid: { color: 'rgba(255,255,255,0.03)' } },
+    y: { ticks: { color: '#5a5a72', font: { size: 10, family: 'Outfit' } }, grid: { color: 'rgba(255,255,255,0.05)' } }
+  }
+};
+
+function initCharts() {
+  const mkDataset = (color, label) => ({ label, data: [], borderColor: color, backgroundColor: color + '10', fill: true, tension: 0.4, pointRadius: 2, borderWidth: 2 });
+  AppState.charts.weight = new Chart(document.getElementById('chart-weight'), { type: 'line', data: { labels: [], datasets: [mkDataset('#60a5fa', 'Gewicht')] }, options: CHART_DEFAULTS });
+  AppState.charts.kcal = new Chart(document.getElementById('chart-kcal'), { type: 'line', data: { labels: [], datasets: [mkDataset('#f5a623', 'kcal')] }, options: CHART_DEFAULTS });
+  AppState.charts.sleep = new Chart(document.getElementById('chart-sleep'), { type: 'line', data: { labels: [], datasets: [mkDataset('#a78bfa', 'Schlaf')] }, options: { ...CHART_DEFAULTS, scales: { ...CHART_DEFAULTS.scales, y: { min: 0, max: 100 } } } });
+  AppState.charts.macros = new Chart(document.getElementById('chart-macros'), {
+    type: 'line', data: { labels: [], datasets: [ { ...mkDataset('#4ade80', 'Protein'), fill: false }, { ...mkDataset('#a78bfa', 'Carbs'), fill: false }, { ...mkDataset('#fb923c', 'Fett'), fill: false } ] },
+    options: { ...CHART_DEFAULTS, plugins: { legend: { display: true, labels: { color: '#e8e8f0', font: { size: 10 } } } } }
+  });
+}
+
+function setRange(days, el) {
+  AppState.currentRange = days;
+  document.querySelectorAll('.range-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  loadAnalytics();
+}
+
+async function loadAnalytics() {
+  showStatus('analyse-status', 'loading', 'Analysiere Datensätze…');
+  try {
+    const r = await fetch(`${AppState.scriptUrl}?action=range&days=${AppState.currentRange}`);
+    const rows = await r.json();
+    if (Array.isArray(rows)) {
+      const formatLabel = d => { const [,m,day] = d.split('-'); return `${day}.${m}`; };
+      const labels = rows.map(r => formatLabel(r.date));
+      const numOrNull = v => (v === '' || v === null) ? null : Number(v);
+      
+      const updateSingle = (chart, key) => {
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = rows.map(r => numOrNull(r[key]));
+        chart.update();
+      };
+      updateSingle(AppState.charts.weight, 'weight');
+      updateSingle(AppState.charts.kcal, 'kcal');
+      updateSingle(AppState.charts.sleep, 'sleep');
+      
+      AppState.charts.macros.data.labels = labels;
+      AppState.charts.macros.data.datasets[0].data = rows.map(r => numOrNull(r.protein));
+      AppState.charts.macros.data.datasets[1].data = rows.map(r => numOrNull(r.carbs));
+      AppState.charts.macros.data.datasets[2].data = rows.map(r => numOrNull(r.fat));
+      AppState.charts.macros.update();
+    }
+    showStatus('analyse-status', '', '');
+  } catch { showStatus('analyse-status', 'error', '⚠️ Fehler beim Chart-Render'); }
+}
+
+function showStatus(id, type, text) {
+  const el = document.getElementById(id);
+  el.className = 'status-bar' + (type ? ' show ' + type : '');
+  el.innerHTML = type === 'loading' ? `<span class="spin"></span>${text}` : text;
+}
+
+// ══════════════════════════════════════════════
+//  KALENDER LOGIK
+// ══════════════════════════════════════════════
+async function initCalendar() {
+  AppState.calViewDate = new Date(AppState.currentDate);
+  AppState.calSelectedDate = new Date(AppState.currentDate);
+  await loadCalendarMonth(AppState.calViewDate);
+  renderCalendar();
+  renderCalSummary(AppState.calSelectedDate);
+}
+
+async function loadCalendarMonth(d) {
+  const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+  if (AppState.calDataCache[key]) return;
+  showStatus('cal-status', 'loading', 'Lade Kalenderblatt…');
+  try {
+    const r = await fetch(`${AppState.scriptUrl}?action=range&days=90`);
+    const rows = await r.json();
+    if (Array.isArray(rows)) {
+      rows.forEach(row => {
+        if (!row.date) return;
+        const mk = row.date.slice(0,7);
+        if (!AppState.calDataCache[mk]) AppState.calDataCache[mk] = {};
+        AppState.calDataCache[mk][row.date] = row;
+      });
+    }
+    if (!AppState.calDataCache[key]) AppState.calDataCache[key] = {};
+    showStatus('cal-status', '', '');
+  } catch { showStatus('cal-status', 'error', '⚠️ Abfrage fehlgeschlagen'); }
+}
+
+function calDayData(dateStr) {
+  return (AppState.calDataCache[dateStr.slice(0,7)] || {})[dateStr] || null;
+}
+
+function hasData(dateStr) {
+  const d = calDayData(dateStr);
+  return d ? !!(d.kcal || d.weight || d.protein || d.sleep || d.workout || d.note) : false;
+}
+
+function renderCalendar() {
+  const today = new Date();
+  const yr = AppState.calViewDate.getFullYear(), mo = AppState.calViewDate.getMonth();
+  document.getElementById('cal-month-label').textContent = AppState.calViewDate.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+  document.getElementById('cal-month-sub').textContent = `${new Date(yr, mo+1, 0).getDate()} Tage`;
+  document.getElementById('cal-next-month').disabled = (yr * 12 + mo) >= (today.getFullYear() * 12 + today.getMonth());
+  const firstDow = (new Date(yr, mo, 1).getDay() + 6) % 7;
+  const daysInMonth = new Date(yr, mo+1, 0).getDate(), prevDays = new Date(yr, mo, 0).getDate();
+  const grid = document.getElementById('cal-grid'); grid.innerHTML = '';
+  let cells = [];
+  for (let i = firstDow - 1; i >= 0; i--) cells.push({ day: prevDays - i, month: mo - 1, year: yr, type: 'prev' });
+  for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, month: mo, year: yr, type: 'current' });
+  const rem = (7 - (cells.length % 7)) % 7;
+  for (let d = 1; d <= rem; d++) cells.push({ day: d, month: mo + 1, year: yr, type: 'next' });
+  cells.forEach(c => {
+    const cellDate = new Date(c.year, c.month, c.day), dateStr = isoDate(cellDate);
+    const isToday = sameDay(cellDate, today), isFuture = cellDate > today, isSelected = sameDay(cellDate, AppState.calSelectedDate);
+    
+    const el = document.createElement('div');
+    el.className = 'cal-cell';
+    if (c.type !== 'current') el.classList.add('other-month');
+    if (isFuture) el.classList.add('future');
+    if (isToday) el.classList.add('is-today');
+    if (isSelected) el.classList.add('selected');
+    
+    el.innerHTML = `<span class="cal-day-num">${c.day}</span><div style="min-height:5px">${(!isFuture && hasData(dateStr)) ? '<div class="cal-dot"></div>' : ''}</div>`;
+    if (!isFuture) el.addEventListener('click', (e) => { triggerVibration(10); selectCalDay(cellDate, e); });
+    grid.appendChild(el);
+  });
+}
+
+async function calChangeMonth(delta) {
+  AppState.calViewDate = new Date(AppState.calViewDate.getFullYear(), AppState.calViewDate.getMonth() + delta, 1);
+  await loadCalendarMonth(AppState.calViewDate);
+  renderCalendar();
+}
+
+function selectCalDay(date, e) {
+  AppState.calSelectedDate = new Date(date);
+  document.querySelectorAll('.cal-cell').forEach(el => el.classList.remove('selected'));
+  if (e && e.currentTarget) e.currentTarget.classList.add('selected');
+  else renderCalendar();
+  renderCalSummary(date);
+}
+
+function renderCalSummary(date) {
+  const dateStr = isoDate(date);
+  document.getElementById('cal-summary-label').textContent = sameDay(date, new Date()) ? 'Heute' : date.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
+  const d = calDayData(dateStr);
+  const setM = (id, val, u = '') => {
+    const el = document.getElementById('csm-' + id);
+    if (val) { el.textContent = val + u; el.classList.remove('empty'); }
+    else { el.textContent = '—'; el.classList.add('empty'); }
+  };
+  setM('kcal', d?.kcal); setM('weight', d?.weight, ' kg'); setM('sleep', d?.sleep); setM('protein', d?.protein, 'g'); setM('carbs', d?.carbs, 'g'); setM('fat', d?.fat, 'g');
+  const wb = document.getElementById('csm-workout');
+  if (d?.workout) { wb.innerHTML = `<span class="material-symbols-rounded" style="font-size:14px">exercise</span> ${d.workout}`; wb.style.display = 'flex'; }
+  else { wb.style.display = 'none'; }
+  
+  const nb = document.getElementById('csm-note');
+  if (d?.note) { nb.textContent = `"${d.note}"`; nb.style.display = 'block'; }
+  else { nb.style.display = 'none'; }
+}
+
+function goToSelectedDay() {
+  AppState.currentDate = new Date(AppState.calSelectedDate);
+  refreshDateDisplay();
+  const dateStr = isoDate(AppState.currentDate);
+  if (AppState.cache[dateStr]) fillForm(AppState.cache[dateStr]);
+  else loadDay();
+  switchTab('tracker');
+}
 </script>
 </body>
 </html>
