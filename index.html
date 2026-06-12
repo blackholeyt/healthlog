@@ -8,9 +8,14 @@
   <meta name="apple-mobile-web-app-title" content="HealthLog">
   <meta name="theme-color" content="#080810">
   <title>HealthLog</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  
   <style>
     :root {
       --bg:         #080810;
@@ -47,6 +52,15 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Icon Settings */
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
     #app {
       height: 100%;
       display: flex;
@@ -81,20 +95,22 @@
     .date-nav::after {
       content: '';
       position: absolute;
-      bottom: 0; left: -16px; right: -16px;
+      bottom: 0; left: -16px;
+      right: -16px;
       height: 1px;
       background: var(--border);
     }
     .nav-arrow {
-      width: 42px; height: 42px;
+      width: 42px;
+      height: 42px;
       border: 1px solid var(--border);
       border-radius: 13px;
       background: var(--surface);
       color: var(--text);
       font-size: 22px;
-      line-height: 1;
       cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center; justify-content: center;
       transition: background 0.15s, opacity 0.2s;
       flex-shrink: 0;
     }
@@ -122,7 +138,11 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       margin: 20px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
+    .section-label .material-symbols-rounded { font-size: 14px; opacity: 0.7; }
 
     /* ── METRIC CARDS ── */
     .metrics-grid {
@@ -151,10 +171,11 @@
       opacity: 0.7;
     }
     .card-icon {
-      font-size: 18px;
+      font-size: 20px;
       position: absolute;
       top: 12px; right: 13px;
-      opacity: 0.35;
+      opacity: 0.25;
+      color: var(--c, var(--text));
     }
     .card-label {
       font-size: 10px;
@@ -189,32 +210,6 @@
       font-weight: 500;
     }
     .card-full { grid-column: 1 / -1; }
-
-    /* ── WORKOUT CHIPS ── */
-    .workout-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
-    }
-    .wchip {
-      padding: 7px 14px;
-      border-radius: 99px;
-      border: 1px solid var(--border);
-      font-size: 13px;
-      font-family: var(--font-ui);
-      font-weight: 500;
-      cursor: pointer;
-      background: transparent;
-      color: var(--text-dim);
-      transition: all 0.15s;
-    }
-    .wchip.sel {
-      background: var(--green);
-      border-color: var(--green);
-      color: #000;
-      font-weight: 700;
-    }
 
     /* ── SLEEP SLIDER ── */
     .sleep-val {
@@ -257,11 +252,13 @@
     .slider-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 10px;
+      font-size: 11px;
       color: var(--text-dim);
-      margin-top: 6px;
+      margin-top: 8px;
       font-weight: 500;
     }
+    .slider-labels span { display: flex; align-items: center; gap: 4px; }
+    .slider-labels .material-symbols-rounded { font-size: 14px; }
 
     /* ── SAVE BUTTON ── */
     .save-btn {
@@ -296,7 +293,37 @@
     .status-bar.show { display: flex; }
     .status-bar.loading { background: var(--accent-dim); color: var(--accent); }
     .status-bar.success { background: var(--green-dim); color: var(--green); }
-    .status-bar.error   { background: var(--red-dim);   color: var(--red);   }
+    .status-bar.error   { background: var(--red-dim); color: var(--red);   }
+
+    /* ── POPUP: NEUES HÖCHSTGEWICHT ── */
+    .toast-popup {
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 0px) + 20px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px) scale(0.95);
+      background: var(--blue);
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 8px 24px rgba(96, 165, 250, 0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .toast-popup.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+    .toast-popup .material-symbols-rounded {
+      font-size: 20px;
+    }
 
     /* ── BOTTOM NAV ── */
     .bottom-nav {
@@ -332,7 +359,7 @@
       transition: color 0.2s;
     }
     .tab-btn.active { color: var(--accent); }
-    .tab-icon { font-size: 23px; line-height: 1; }
+    .tab-icon { font-size: 24px; line-height: 1; margin-bottom: 2px;}
 
     /* ── SETUP BANNER ── */
     .setup-banner {
@@ -344,7 +371,7 @@
       font-size: 14px;
       line-height: 1.6;
     }
-    .setup-banner strong { color: var(--accent); display: block; font-size: 15px; margin-bottom: 4px; }
+    .setup-banner strong { color: var(--accent); display: flex; align-items: center; gap: 6px; font-size: 15px; margin-bottom: 6px; }
     .setup-url-input {
       width: 100%;
       background: var(--surface2);
@@ -366,22 +393,9 @@
       padding-top: calc(env(safe-area-inset-top, 0px) + 20px);
       padding-bottom: 4px;
     }
-    .analyse-title {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    .analyse-sub {
-      font-size: 13px;
-      color: var(--text-dim);
-      margin-top: 2px;
-      margin-bottom: 16px;
-    }
-    .range-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
+    .analyse-title { font-size: 28px; font-weight: 700; letter-spacing: -0.03em; }
+    .analyse-sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; margin-bottom: 16px; }
+    .range-row { display: flex; gap: 8px; margin-bottom: 18px; }
     .range-pill {
       padding: 7px 18px;
       border-radius: 99px;
@@ -394,11 +408,7 @@
       color: var(--text-dim);
       transition: all 0.15s;
     }
-    .range-pill.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #000;
-    }
+    .range-pill.active { background: var(--accent); border-color: var(--accent); color: #000; }
     .chart-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -413,7 +423,11 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
       margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
+    .chart-label .material-symbols-rounded { font-size: 16px; color: var(--accent); }
 
     /* ── URL RESET BUTTON ── */
     .reset-url-btn {
@@ -430,31 +444,19 @@
       margin-top: 8px;
       transition: background 0.15s, color 0.15s, border-color 0.15s;
       display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
-    .reset-url-btn.visible { display: block; }
+    .reset-url-btn.visible { display: flex; }
     .reset-url-btn:active { background: var(--surface2); color: var(--text); }
+    .reset-url-btn .material-symbols-rounded { font-size: 16px; }
 
     /* ── CALENDAR PAGE ── */
-    .cal-header {
-      padding-top: calc(env(safe-area-inset-top, 0px) + 20px);
-      padding-bottom: 4px;
-    }
-    .cal-month-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    .cal-month-label {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    .cal-month-sub {
-      font-size: 12px;
-      color: var(--text-dim);
-      margin-top: 1px;
-    }
+    .cal-header { padding-top: calc(env(safe-area-inset-top, 0px) + 20px); padding-bottom: 4px; }
+    .cal-month-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .cal-month-label { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
+    .cal-month-sub { font-size: 12px; color: var(--text-dim); margin-top: 1px; }
     .cal-arrow {
       width: 38px; height: 38px;
       border: 1px solid var(--border);
@@ -469,27 +471,9 @@
     }
     .cal-arrow:active { background: var(--surface2); }
     .cal-arrow:disabled { opacity: 0.25; cursor: default; }
-
-    .cal-weekdays {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      margin-bottom: 6px;
-    }
-    .cal-wd {
-      text-align: center;
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 0;
-    }
-
-    .cal-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 4px;
-    }
+    .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 6px; }
+    .cal-wd { text-align: center; font-size: 10px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 0; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
     .cal-cell {
       aspect-ratio: 1;
       display: flex;
@@ -508,38 +492,14 @@
     .cal-cell.future { opacity: 0.28; cursor: default; pointer-events: none; }
     .cal-cell.other-month .cal-day-num { opacity: 0.3; }
     .cal-cell:not(.empty):not(.future):hover { background: var(--surface2); }
-
-    .cal-cell.selected {
-      background: var(--accent) !important;
-      border-color: var(--accent);
-    }
+    .cal-cell.selected { background: var(--accent) !important; border-color: var(--accent); }
     .cal-cell.selected .cal-day-num { color: #000 !important; font-weight: 800; }
     .cal-cell.selected .cal-dot { background: rgba(0,0,0,0.35) !important; }
-
-    .cal-cell.is-today:not(.selected) {
-      border-color: var(--accent);
-    }
+    .cal-cell.is-today:not(.selected) { border-color: var(--accent); }
     .cal-cell.is-today:not(.selected) .cal-day-num { color: var(--accent); }
-
-    .cal-day-num {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1;
-    }
-    .cal-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--green);
-      flex-shrink: 0;
-    }
-    .cal-dot-row {
-      display: flex;
-      gap: 3px;
-      align-items: center;
-      min-height: 5px;
-    }
+    .cal-day-num { font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--text); line-height: 1; }
+    .cal-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+    .cal-dot-row { display: flex; gap: 3px; align-items: center; min-height: 5px; }
 
     /* ── CALENDAR SUMMARY CARD ── */
     .cal-summary {
@@ -572,11 +532,7 @@
       transition: opacity 0.15s;
     }
     .cal-go-btn:active { opacity: 0.8; }
-    .cal-summary-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
+    .cal-summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .cal-metric {
       background: var(--surface2);
       border-radius: 12px;
@@ -597,8 +553,13 @@
       color: var(--text-dim);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-top: 4px;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
+    .cal-metric-label .material-symbols-rounded { font-size: 12px; }
     .cal-workout-badge {
       background: var(--green-dim);
       color: var(--green);
@@ -608,25 +569,15 @@
       font-weight: 600;
       margin-top: 8px;
       text-align: center;
-    }
-    .cal-legend {
-      display: flex;
-      gap: 16px;
-      margin-top: 14px;
-      flex-wrap: wrap;
-    }
-    .cal-legend-item {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      font-size: 11px;
-      color: var(--text-dim);
-      font-weight: 500;
     }
-    .cal-legend-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-    }
+    .cal-workout-badge .material-symbols-rounded { font-size: 18px; }
+    .cal-legend { display: flex; gap: 16px; margin-top: 14px; flex-wrap: wrap; }
+    .cal-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-dim); font-weight: 500; }
+    .cal-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
     /* ── SPINNER ── */
     .spin {
@@ -645,23 +596,29 @@
 <body>
 <div id="app">
 
-  <!-- ════════════════════ TRACKER PAGE ════════════════════ -->
+  <div id="weight-toast" class="toast-popup">
+    <span class="material-symbols-rounded">emoji_events</span>
+    Neues Höchstgewicht!
+  </div>
+
   <div class="page active" id="page-tracker">
 
-    <!-- Date Nav -->
     <div class="date-nav">
-      <button class="nav-arrow" onclick="changeDay(-1)">‹</button>
+      <button class="nav-arrow" onclick="changeDay(-1)">
+        <span class="material-symbols-rounded">chevron_left</span>
+      </button>
       <div class="date-center">
         <div class="date-weekday" id="lbl-weekday">Heute</div>
         <div class="date-long" id="lbl-long"></div>
         <div id="lbl-today" class="today-badge" style="display:none">HEUTE</div>
       </div>
-      <button class="nav-arrow" id="btn-next" onclick="changeDay(1)">›</button>
+      <button class="nav-arrow" id="btn-next" onclick="changeDay(1)">
+        <span class="material-symbols-rounded">chevron_right</span>
+      </button>
     </div>
 
-    <!-- Setup Banner -->
     <div class="setup-banner" id="setup-banner">
-      <strong>⚙️ Einmalig: Apps Script URL eingeben</strong>
+      <strong><span class="material-symbols-rounded">settings</span> Einmalig: Apps Script URL eingeben</strong>
       Verbinde die App mit deinem Google Sheet. Schau in die README.md für die Anleitung.
       <input class="setup-url-input" id="url-input"
              placeholder="https://script.google.com/macros/s/…/exec"
@@ -670,15 +627,15 @@
               onclick="saveUrl()">Verbinden</button>
     </div>
 
-    <!-- Tracker Status -->
     <div class="status-bar" id="tracker-status"></div>
 
-    <!-- Ernährung -->
-    <div class="section-label">Ernährung</div>
+    <div class="section-label">
+      <span class="material-symbols-rounded">restaurant</span> Ernährung
+    </div>
     <div class="metrics-grid">
 
       <div class="card" style="--c:var(--accent)" onclick="focusInput('kcal')">
-        <span class="card-icon">🔥</span>
+        <span class="material-symbols-rounded card-icon">local_fire_department</span>
         <div class="card-label">Kalorien</div>
         <input class="metric-input" id="inp-kcal" type="number" inputmode="numeric"
                placeholder="—" style="--c:var(--accent)">
@@ -686,7 +643,7 @@
       </div>
 
       <div class="card" style="--c:var(--blue)" onclick="focusInput('weight')">
-        <span class="card-icon">⚖️</span>
+        <span class="material-symbols-rounded card-icon">scale</span>
         <div class="card-label">Gewicht</div>
         <input class="metric-input" id="inp-weight" type="number" inputmode="decimal"
                step="0.1" placeholder="—" style="--c:var(--blue)">
@@ -694,7 +651,7 @@
       </div>
 
       <div class="card" style="--c:var(--green)" onclick="focusInput('protein')">
-        <span class="card-icon">💪</span>
+        <span class="material-symbols-rounded card-icon">fitness_center</span>
         <div class="card-label">Protein</div>
         <input class="metric-input" id="inp-protein" type="number" inputmode="numeric"
                placeholder="—" style="--c:var(--green)">
@@ -702,7 +659,7 @@
       </div>
 
       <div class="card" style="--c:var(--purple)" onclick="focusInput('carbs')">
-        <span class="card-icon">🌾</span>
+        <span class="material-symbols-rounded card-icon">bakery_dining</span>
         <div class="card-label">Kohlenhydrate</div>
         <input class="metric-input" id="inp-carbs" type="number" inputmode="numeric"
                placeholder="—" style="--c:var(--purple)">
@@ -710,7 +667,7 @@
       </div>
 
       <div class="card card-full" style="--c:var(--orange)" onclick="focusInput('fat')">
-        <span class="card-icon">🥑</span>
+        <span class="material-symbols-rounded card-icon">water_drop</span>
         <div class="card-label">Fett</div>
         <input class="metric-input" id="inp-fat" type="number" inputmode="numeric"
                placeholder="—" style="--c:var(--orange)">
@@ -719,18 +676,20 @@
 
     </div>
 
-    <!-- Workout -->
-    <div class="section-label">Workout</div>
+    <div class="section-label">
+      <span class="material-symbols-rounded">sports_gymnastics</span> Workout
+    </div>
     <div class="card card-full" style="--c:var(--green)" onclick="focusInput('workout')">
-      <span class="card-icon">🏋️</span>
+      <span class="material-symbols-rounded card-icon">exercise</span>
       <div class="card-label">Workout Typ</div>
       <input class="metric-input" id="inp-workout" type="text"
              placeholder="—" style="--c:var(--green); font-size:20px"
              oninput="currentWorkout=this.value">
     </div>
 
-    <!-- Schlaf -->
-    <div class="section-label">Schlaf</div>
+    <div class="section-label">
+      <span class="material-symbols-rounded">bedtime</span> Schlaf
+    </div>
     <div class="card card-full" style="--c:var(--purple)">
       <div class="card-label">Schlaf Score</div>
       <div class="sleep-val empty" id="sleep-display">—</div>
@@ -740,23 +699,23 @@
                oninput="onSleepInput(this.value)"
                style="--pct:0%">
       </div>
-      <div class="slider-labels"><span>😩 Schlecht</span><span>Perfekt 😴</span></div>
+      <div class="slider-labels">
+        <span><span class="material-symbols-rounded" style="color:var(--text-dim)">sentiment_dissatisfied</span> Schlecht</span>
+        <span>Perfekt <span class="material-symbols-rounded" style="color:var(--text-dim)">sentiment_satisfied</span></span>
+      </div>
     </div>
 
-    <!-- Save -->
     <button class="save-btn" id="save-btn" onclick="saveDay()" style="margin-top:18px">
       Speichern
     </button>
     <div class="status-bar" id="save-status" style="margin-bottom:4px"></div>
 
-    <!-- URL Reset -->
     <button class="reset-url-btn" id="reset-url-btn" onclick="resetUrl()">
-      ⚙️ Script-URL ändern
+      <span class="material-symbols-rounded">settings</span> Script-URL ändern
     </button>
     <div style="height:8px"></div>
   </div>
 
-  <!-- ════════════════════ ANALYSE PAGE ════════════════════ -->
   <div class="page" id="page-analyse">
     <div class="analyse-header">
       <div class="analyse-title">Analyse</div>
@@ -772,40 +731,42 @@
     <div class="status-bar" id="analyse-status"></div>
 
     <div class="chart-card">
-      <div class="chart-label">⚖️ Gewicht (kg)</div>
+      <div class="chart-label"><span class="material-symbols-rounded" style="color:var(--blue)">scale</span> Gewicht (kg)</div>
       <canvas id="chart-weight" height="160"></canvas>
     </div>
     <div class="chart-card">
-      <div class="chart-label">🔥 Kalorien (kcal)</div>
+      <div class="chart-label"><span class="material-symbols-rounded" style="color:var(--accent)">local_fire_department</span> Kalorien (kcal)</div>
       <canvas id="chart-kcal" height="140"></canvas>
     </div>
     <div class="chart-card">
-      <div class="chart-label">💪 Makros (g)</div>
+      <div class="chart-label"><span class="material-symbols-rounded" style="color:var(--green)">fitness_center</span> Makros (g)</div>
       <canvas id="chart-macros" height="160"></canvas>
     </div>
     <div class="chart-card">
-      <div class="chart-label">😴 Schlaf Score</div>
+      <div class="chart-label"><span class="material-symbols-rounded" style="color:var(--purple)">bedtime</span> Schlaf Score</div>
       <canvas id="chart-sleep" height="140"></canvas>
     </div>
     <div style="height:8px"></div>
   </div>
 
-  <!-- ════════════════════ KALENDER PAGE ════════════════════ -->
   <div class="page" id="page-kalender">
     <div class="cal-header">
       <div class="cal-month-nav">
-        <button class="cal-arrow" id="cal-prev" onclick="calChangeMonth(-1)">‹</button>
+        <button class="cal-arrow" id="cal-prev" onclick="calChangeMonth(-1)">
+          <span class="material-symbols-rounded">chevron_left</span>
+        </button>
         <div style="text-align:center">
           <div class="cal-month-label" id="cal-month-label">Mai 2026</div>
           <div class="cal-month-sub" id="cal-month-sub"></div>
         </div>
-        <button class="cal-arrow" id="cal-next" onclick="calChangeMonth(1)">›</button>
+        <button class="cal-arrow" id="cal-next" onclick="calChangeMonth(1)">
+          <span class="material-symbols-rounded">chevron_right</span>
+        </button>
       </div>
     </div>
 
     <div class="status-bar" id="cal-status"></div>
 
-    <!-- Wochentage Header -->
     <div class="cal-weekdays">
       <div class="cal-wd">Mo</div>
       <div class="cal-wd">Di</div>
@@ -816,10 +777,8 @@
       <div class="cal-wd">So</div>
     </div>
 
-    <!-- Calendar Grid -->
     <div class="cal-grid" id="cal-grid"></div>
 
-    <!-- Legend -->
     <div class="cal-legend">
       <div class="cal-legend-item">
         <div class="cal-legend-dot" style="background:var(--green)"></div>Einträge vorhanden
@@ -832,7 +791,6 @@
       </div>
     </div>
 
-    <!-- Day Summary -->
     <div class="cal-summary" id="cal-summary">
       <div class="cal-summary-date">
         <span id="cal-summary-label">Wähle einen Tag</span>
@@ -841,27 +799,27 @@
       <div class="cal-summary-grid" id="cal-summary-grid">
         <div class="cal-metric">
           <div class="cal-metric-val empty" id="csm-kcal">—</div>
-          <div class="cal-metric-label">🔥 kcal</div>
+          <div class="cal-metric-label"><span class="material-symbols-rounded" style="color:var(--accent)">local_fire_department</span> kcal</div>
         </div>
         <div class="cal-metric">
           <div class="cal-metric-val empty" id="csm-weight">—</div>
-          <div class="cal-metric-label">⚖️ kg</div>
+          <div class="cal-metric-label"><span class="material-symbols-rounded" style="color:var(--blue)">scale</span> kg</div>
         </div>
         <div class="cal-metric">
           <div class="cal-metric-val empty" id="csm-sleep">—</div>
-          <div class="cal-metric-label">😴 Schlaf</div>
+          <div class="cal-metric-label"><span class="material-symbols-rounded" style="color:var(--purple)">bedtime</span> Schlaf</div>
         </div>
         <div class="cal-metric">
           <div class="cal-metric-val empty" id="csm-protein">—</div>
-          <div class="cal-metric-label">💪 Protein</div>
+          <div class="cal-metric-label"><span class="material-symbols-rounded" style="color:var(--green)">fitness_center</span> Protein</div>
         </div>
         <div class="cal-metric">
           <div class="cal-metric-val empty" id="csm-carbs">—</div>
-          <div class="cal-metric-label">🌾 Carbs</div>
+          <div class="cal-metric-label"><span class="material-symbols-rounded" style="color:var(--purple)">bakery_dining</span> Carbs</div>
         </div>
         <div class="cal-metric">
           <div class="cal-metric-val empty" id="csm-fat">—</div>
-          <div class="cal-metric-label">🥑 Fett</div>
+          <div class="cal-metric-label"><span class="material-symbols-rounded" style="color:var(--orange)">water_drop</span> Fett</div>
         </div>
       </div>
       <div class="cal-workout-badge" id="csm-workout" style="display:none"></div>
@@ -870,16 +828,15 @@
     <div style="height:8px"></div>
   </div>
 
-  <!-- ════════════════════ BOTTOM NAV ════════════════════ -->
   <nav class="bottom-nav">
     <button class="tab-btn active" id="tab-tracker" onclick="switchTab('tracker')">
-      <span class="tab-icon">📋</span>Tracker
+      <span class="material-symbols-rounded tab-icon">assignment</span>Tracker
     </button>
     <button class="tab-btn" id="tab-kalender" onclick="switchTab('kalender')">
-      <span class="tab-icon">📅</span>Kalender
+      <span class="material-symbols-rounded tab-icon">calendar_month</span>Kalender
     </button>
     <button class="tab-btn" id="tab-analyse" onclick="switchTab('analyse')">
-      <span class="tab-icon">📊</span>Analyse
+      <span class="material-symbols-rounded tab-icon">monitoring</span>Analyse
     </button>
   </nav>
 
@@ -895,6 +852,9 @@ let currentWorkout = '';
 let sleepTouched = false;
 let charts = {};
 let currentRange = 7;
+
+// Lade bisheriges Höchstgewicht aus dem lokalen Speicher
+let maxRecordedWeight = parseFloat(localStorage.getItem('healthlog_max_weight')) || 0;
 
 // ══════════════════════════════════════════════
 //  INIT
@@ -938,6 +898,7 @@ function resetUrl() {
   showStatus('tracker-status', '', '');
   showStatus('save-status', '', '');
 }
+
 // ══════════════════════════════════════════════
 //  DATE NAV
 // ══════════════════════════════════════════════
@@ -1027,6 +988,16 @@ function fillForm(d) {
   const set = (k, v) => { if (v) document.getElementById('inp-' + k).value = v; };
   set('kcal', d.kcal); set('protein', d.protein);
   set('carbs', d.carbs); set('fat', d.fat); set('weight', d.weight);
+  
+  // Aktualisiere leise den Rekord, falls ältere, höhere Daten geladen werden
+  if (d.weight) {
+    const wVal = parseFloat(d.weight);
+    if (wVal > maxRecordedWeight) {
+      maxRecordedWeight = wVal;
+      localStorage.setItem('healthlog_max_weight', maxRecordedWeight);
+    }
+  }
+
   if (d.workout) {
     currentWorkout = d.workout;
     document.getElementById('inp-workout').value = d.workout;
@@ -1044,10 +1015,32 @@ function fillForm(d) {
 }
 
 // ══════════════════════════════════════════════
-//  SAVE
+//  SAVE & POPUP LOGIC
 // ══════════════════════════════════════════════
+function checkNewHighestWeight(currentWeightInput) {
+  if (!currentWeightInput) return;
+  const newWeight = parseFloat(currentWeightInput);
+  
+  if (newWeight > maxRecordedWeight) {
+    // Popup triggern (nur wenn es nicht der allererste Eintrag überhaupt ist um Spam zu vermeiden)
+    if (maxRecordedWeight > 0) {
+      const toast = document.getElementById('weight-toast');
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 1000); // Exakt 1 Sekunde wie gewünscht
+    }
+    // Update State
+    maxRecordedWeight = newWeight;
+    localStorage.setItem('healthlog_max_weight', maxRecordedWeight);
+  }
+}
+
 async function saveDay() {
   if (!SCRIPT_URL) return;
+  
+  const currentWeightVal = document.getElementById('inp-weight').value;
+
   const params = new URLSearchParams({
     action:  'set',
     date:    isoDate(currentDate),
@@ -1055,18 +1048,24 @@ async function saveDay() {
     protein: document.getElementById('inp-protein').value || '',
     carbs:   document.getElementById('inp-carbs').value   || '',
     fat:     document.getElementById('inp-fat').value     || '',
-    weight:  document.getElementById('inp-weight').value  || '',
+    weight:  currentWeightVal || '',
     workout: currentWorkout,
     sleep:   sleepTouched ? document.getElementById('inp-sleep').value : ''
   });
+
   const btn = document.getElementById('save-btn');
   btn.disabled = true;
   showStatus('save-status', 'loading', 'Wird gespeichert…');
+
   try {
     const r = await fetch(`${SCRIPT_URL}?${params.toString()}`);
     const d = await r.json();
     if (d.success) {
       showStatus('save-status', 'success', '✓ Gespeichert!');
+      
+      // Prüfe nach erfolgreichem Speichern auf Höchstgewicht
+      checkNewHighestWeight(currentWeightVal);
+
       setTimeout(() => showStatus('save-status', '', ''), 2500);
     } else { throw new Error(); }
   } catch {
@@ -1082,9 +1081,11 @@ function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + tab).classList.add('active');
   document.getElementById('tab-' + tab).classList.add('active');
-  if (tab === 'analyse') SCRIPT_URL ? loadAnalytics() :
+  if (tab === 'analyse') SCRIPT_URL ?
+    loadAnalytics() :
     showStatus('analyse-status', 'error', '⚠️ Erst Script URL in Tracker-Tab eintragen');
-  if (tab === 'kalender') SCRIPT_URL ? initCalendar() :
+  if (tab === 'kalender') SCRIPT_URL ?
+    initCalendar() :
     showStatus('cal-status', 'error', '⚠️ Erst Script URL in Tracker-Tab eintragen');
 }
 
@@ -1128,7 +1129,6 @@ function makeLineDataset(color, label) {
 function initCharts() {
   Chart.defaults.color = '#5a5a72';
   const mk = (id, cfg) => new Chart(document.getElementById(id), cfg);
-
   charts.weight = mk('chart-weight', {
     type: 'line',
     data: { labels: [], datasets: [makeLineDataset('#60a5fa', 'Gewicht')] },
@@ -1190,7 +1190,7 @@ function renderCharts(rows) {
   const fmt = d => { const [,m,day] = d.split('-'); return `${day}.${m}`; };
   const labels = rows.map(r => fmt(r.date));
   const nullIfEmpty = v => (v === '' || v === null || v === undefined) ? null : Number(v);
-
+  
   const upd1 = (ch, key) => {
     ch.data.labels = labels;
     ch.data.datasets[0].data = rows.map(r => nullIfEmpty(r[key]));
@@ -1206,6 +1206,7 @@ function renderCharts(rows) {
   charts.macros.data.datasets[2].data = rows.map(r => nullIfEmpty(r.fat));
   charts.macros.update();
 }
+
 // ══════════════════════════════════════════════
 //  UTIL
 // ══════════════════════════════════════════════
@@ -1220,25 +1221,23 @@ function showStatus(id, type, text) {
 // ══════════════════════════════════════════════
 //  CALENDAR
 // ══════════════════════════════════════════════
-let calViewDate = new Date();           // which month we're viewing
-let calSelectedDate = new Date();       // which day is highlighted
-let calDataCache = {};                  // { 'YYYY-MM': [{date,kcal,...}] }
+let calViewDate = new Date();           
+let calSelectedDate = new Date();
+let calDataCache = {};                  
 
 async function initCalendar() {
-  calViewDate = new Date(currentDate);  // sync to tracker's current date
+  calViewDate = new Date(currentDate);
   calSelectedDate = new Date(currentDate);
   await loadCalendarMonth(calViewDate);
   renderCalendar();
   renderCalSummary(calSelectedDate);
 }
 
-// Load 90-day range once and cache per-month
 async function loadCalendarMonth(d) {
   const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
-  if (calDataCache[key]) return; // already loaded
+  if (calDataCache[key]) return;
   showStatus('cal-status', 'loading', 'Lade Monatsdaten…');
   try {
-    // Load a ~90 day window centred on the month
     const r = await fetch(`${SCRIPT_URL}?action=range&days=90`);
     const rows = await r.json();
     if (Array.isArray(rows)) {
@@ -1249,7 +1248,6 @@ async function loadCalendarMonth(d) {
         calDataCache[mk][row.date] = row;
       });
     }
-    // Mark this key as loaded even if no data for it
     if (!calDataCache[key]) calDataCache[key] = {};
     showStatus('cal-status', '', '');
   } catch {
@@ -1273,19 +1271,15 @@ function renderCalendar() {
   const yr = calViewDate.getFullYear();
   const mo = calViewDate.getMonth();
 
-  // Header label
   document.getElementById('cal-month-label').textContent =
     calViewDate.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
   document.getElementById('cal-month-sub').textContent =
     `${new Date(yr, mo+1, 0).getDate()} Tage`;
-
-  // Disable next if current month is today's month or later
+  
   const nowYM = today.getFullYear() * 12 + today.getMonth();
   const viewYM = yr * 12 + mo;
   document.getElementById('cal-next').disabled = viewYM >= nowYM;
-
-  // Build grid
-  // First day of month (0=Sun..6=Sat), convert to Mon-based (0=Mon..6=Sun)
+  
   const firstDow = (new Date(yr, mo, 1).getDay() + 6) % 7;
   const daysInMonth = new Date(yr, mo+1, 0).getDate();
   const prevDays = new Date(yr, mo, 0).getDate();
@@ -1295,15 +1289,12 @@ function renderCalendar() {
 
   let cells = [];
 
-  // Leading empty cells from previous month
   for (let i = firstDow - 1; i >= 0; i--) {
     cells.push({ day: prevDays - i, month: mo - 1, year: yr, type: 'prev' });
   }
-  // Current month
   for (let d = 1; d <= daysInMonth; d++) {
     cells.push({ day: d, month: mo, year: yr, type: 'current' });
   }
-  // Trailing cells
   const remaining = (7 - (cells.length % 7)) % 7;
   for (let d = 1; d <= remaining; d++) {
     cells.push({ day: d, month: mo + 1, year: yr, type: 'next' });
@@ -1332,7 +1323,7 @@ function renderCalendar() {
       </div>`;
 
     if (!isFuture) {
-      el.onclick = () => selectCalDay(cellDate);
+      el.onclick = (event) => selectCalDay(cellDate, event);
     }
     grid.appendChild(el);
   });
@@ -1344,21 +1335,25 @@ async function calChangeMonth(delta) {
   renderCalendar();
 }
 
-function selectCalDay(date) {
+function selectCalDay(date, event) {
   calSelectedDate = new Date(date);
-  // Update grid selection without full re-render
   document.querySelectorAll('.cal-cell').forEach(el => el.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('selected');
+  } else {
+    renderCalendar();
+  }
   renderCalSummary(date);
 }
 
 function renderCalSummary(date) {
   const dateStr = isoDate(date);
   const isToday = sameDay(date, new Date());
-  const label = isToday ? 'Heute' :
+  const label = isToday ?
+    'Heute' :
     date.toLocaleDateString('de-DE', { weekday: 'long', day: '2-digit', month: 'long' });
   document.getElementById('cal-summary-label').textContent = label;
-
+  
   const d = calDayData(dateStr);
   const setM = (id, val, unit) => {
     const el = document.getElementById('csm-' + id);
@@ -1380,8 +1375,8 @@ function renderCalSummary(date) {
 
   const wb = document.getElementById('csm-workout');
   if (d?.workout) {
-    wb.textContent = '🏋️ ' + d.workout;
-    wb.style.display = 'block';
+    wb.innerHTML = `<span class="material-symbols-rounded">exercise</span> ${d.workout}`;
+    wb.style.display = 'flex';
   } else {
     wb.style.display = 'none';
   }
