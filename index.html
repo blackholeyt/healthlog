@@ -177,7 +177,6 @@
       transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Erweitertes Gamification-Styling */
     .game-streak {
       background: rgba(251, 146, 60, 0.12);
       color: var(--orange);
@@ -677,6 +676,7 @@ const WEIGHT_KEY = 'healthlog_best_weight';
 const XP_KEY = 'healthlog_total_xp';
 const STREAK_KEY = 'healthlog_streak';
 const LAST_DATE_KEY = 'healthlog_last_date';
+const TRACKED_HISTORY_KEY = 'healthlog_xp_history'; // Neu: Verhindert doppelte XP am selben Tag
 
 const AppState = {
   scriptUrl: localStorage.getItem(URL_KEY) || '',
@@ -732,14 +732,12 @@ function initEventListeners() {
   document.getElementById('save-setup-btn').addEventListener('click', saveSetup);
   document.getElementById('reset-url-btn').addEventListener('click', resetSetup);
   
-  // Validierung gegen negative Zahlen
   document.querySelectorAll('.metric-input[type="number"]').forEach(input => {
     input.addEventListener('input', (e) => {
       if (parseFloat(e.target.value) < 0) e.target.value = 0;
     });
   });
   
-  // Quests live updaten
   document.getElementById('inp-kcal').addEventListener('input', updateQuestsUI);
   document.getElementById('inp-protein').addEventListener('input', updateQuestsUI);
   document.getElementById('inp-workout').addEventListener('input', (e) => {
@@ -773,15 +771,64 @@ function initEventListeners() {
 }
 
 // ══════════════════════════════════════════════
-//  GAMIFICATION LOGIK
+//  GAMIFICATION LOGIK (ANTI-CHEAT & VALIDIERUNG)
 // ══════════════════════════════════════════════
-function calculateXpGain() {
-  let xp = 0;
-  if (document.getElementById('inp-kcal').value) xp += 10;
-  if (document.getElementById('inp-protein').value) xp += 10;
-  if (AppState.currentWorkout && AppState.currentWorkout.trim()) xp += 25;
-  if (AppState.sleepTouched) xp += 10;
-  return xp;
+function getXpHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(TRACKED_HISTORY_KEY)) || {};
+  } catch(e) {
+    return {};
+  }
+}
+
+function saveXpHistory(history) {
+  localStorage.setItem(TRACKED_HISTORY_KEY, JSON.stringify(history));
+}
+
+function calculateAndAwardXp(dateStr) {
+  const history = getXpHistory();
+  if (!history[dateStr]) {
+    history[dateStr] = { base: false, kcal: false, protein: false, sleep: false, workout: false };
+  }
+  
+  const currentDayXp = history[dateStr];
+  let totalAwardedThisRun = 0;
+  
+  // 1. Basis-XP fürs Speichern (30 XP)
+  if (!currentDayXp.base) {
+    totalAwardedThisRun += 30;
+    currentDayXp.base = true;
+  }
+  
+  // 2. Quest: Kalorien (+10 XP)
+  if (!currentDayXp.kcal && document.getElementById('inp-kcal').value) {
+    totalAwardedThisRun += 10;
+    currentDayXp.kcal = true;
+  }
+  
+  // 3. Quest: Protein (+10 XP)
+  if (!currentDayXp.protein && document.getElementById('inp-protein').value) {
+    totalAwardedThisRun += 10;
+    currentDayXp.protein = true;
+  }
+  
+  // 4. Quest: Schlaf (+10 XP)
+  if (!currentDayXp.sleep && AppState.sleepTouched) {
+    totalAwardedThisRun += 10;
+    currentDayXp.sleep = true;
+  }
+  
+  // 5. Quest: Workout (+25 XP)
+  if (!currentDayXp.workout && AppState.currentWorkout && AppState.currentWorkout.trim()) {
+    totalAwardedThisRun += 25;
+    currentDayXp.workout = true;
+  }
+  
+  if (totalAwardedThisRun > 0) {
+    saveXpHistory(history);
+    addXp(totalAwardedThisRun);
+  }
+  return totalAwardedThisRun;
 }
 
 function addXp(amount) {
@@ -814,14 +861,12 @@ function updateGamificationUI(animate = false) {
   const currentLevel = Math.floor(AppState.totalXp / 100) + 1;
   const xpInCurrentLevel = AppState.totalXp % 100;
   
-  // 1. Initialisiere das aktuelle Level beim ersten Laden, ohne Toast zu triggern
   if (AppState.lastKnownLevel === null) {
     AppState.lastKnownLevel = currentLevel;
   }
   
-  // 2. LEVEL UP CELEBRATION
   if (animate && currentLevel > AppState.lastKnownLevel) {
-    triggerVibration([100, 60, 100, 60, 300]); // Markantes Vibrationsmuster
+    triggerVibration([100, 60, 100, 60, 300]);
     const lvToast = document.getElementById('levelup-toast');
     lvToast.querySelector('.toast-text').textContent = `LEVEL UP! Level ${currentLevel} 🎉`;
     lvToast.classList.add('show');
@@ -829,7 +874,6 @@ function updateGamificationUI(animate = false) {
   }
   AppState.lastKnownLevel = currentLevel;
 
-  // 3. UI Texte & Titel anpassen
   const titles = ["Athlete", "Elite Tracker", "Pro Performer", "Iron Mind", "Master of Health"];
   const titleIndex = Math.min(Math.floor((currentLevel - 1) / 2), titles.length - 1);
   document.getElementById('game-level-lbl').innerHTML = `<span class="material-symbols-rounded">military_tech</span> Level ${currentLevel} ${titles[titleIndex]}`;
@@ -838,7 +882,6 @@ function updateGamificationUI(animate = false) {
   const progressBar = document.getElementById('game-progress');
   progressBar.style.width = `${xpInCurrentLevel}%`;
 
-  // 4. Streak Badge aktualisieren
   const currentStreak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
   const streakLbl = document.getElementById('game-streak-lbl');
   if (currentStreak > 0) {
@@ -848,7 +891,6 @@ function updateGamificationUI(animate = false) {
     streakLbl.style.display = 'none';
   }
   
-  // Quests mit-aktualisieren
   updateQuestsUI();
 }
 
@@ -1007,15 +1049,12 @@ async function saveDay() {
       triggerVibration([40, 30, 40]);
       showStatus('save-status', 'success', '✓ Datensatz erfolgreich gesichert!');
       
-      // XP vergeben für Fleiß
-      const earnedXp = calculateXpGain() + 30; // +30 Basis-XP fürs Abspeichern
-      addXp(earnedXp);
+      // Berechnet und vergibt XP nur dann, wenn sie an diesem Kalendertag noch nicht geholt wurden
+      calculateAndAwardXp(dateStr);
 
       // STREAK LOGIK
       const todayStr = isoDate(new Date());
-      const targetDateStr = isoDate(AppState.currentDate);
-
-      if (todayStr === targetDateStr) {
+      if (todayStr === dateStr) {
         const lastTracked = localStorage.getItem(LAST_DATE_KEY) || '';
         let currentStreak = parseInt(localStorage.getItem(STREAK_KEY) || '0');
         
@@ -1025,19 +1064,17 @@ async function saveDay() {
           const yesterdayStr = isoDate(yesterday);
           
           if (lastTracked === yesterdayStr) {
-            currentStreak += 1; // Strähne fortgesetzt!
+            currentStreak += 1;
           } else {
-            currentStreak = 1;  // Strähne neu begonnen / abgebrochen
+            currentStreak = 1;
           }
           
           localStorage.setItem(STREAK_KEY, currentStreak);
           localStorage.setItem(LAST_DATE_KEY, todayStr);
           
-          // Streak Bonus-XP vergeben
           const streakBonus = currentStreak * 5;
           addXp(streakBonus);
           
-          // Toast-Feedback für die Strähne verzögert anzeigen
           setTimeout(() => {
             const toast = document.getElementById('weight-toast');
             toast.querySelector('.toast-text').textContent = `🔥 ${currentStreak} Tage Streak! (+${streakBonus} XP Bonus)`;
